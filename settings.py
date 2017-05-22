@@ -4,9 +4,6 @@ import tornado.template
 import os
 from tornado.options import define, options
 
-import environment
-import logconfig
-
 # Make filepaths relative to settings.
 path = lambda root,*a: os.path.join(root, *a)
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -17,6 +14,7 @@ define("debug", default=False, help="debug mode")
 tornado.options.parse_command_line()
 
 MEDIA_ROOT = path(ROOT, 'media')
+STATIC_ROOT = path(ROOT, 'static')
 TEMPLATE_ROOT = path(ROOT, 'templates')
 
 # Deployment Configuration
@@ -40,12 +38,12 @@ else:
 
 settings = {}
 settings['debug'] = DEPLOYMENT != DeploymentType.PRODUCTION or options.debug
-settings['static_path'] = MEDIA_ROOT
+settings['static_path'] = STATIC_ROOT
 settings['cookie_secret'] = "your-cookie-secret"
 settings['xsrf_cookies'] = True
 settings['template_loader'] = tornado.template.Loader(TEMPLATE_ROOT)
 
-SYSLOG_TAG = "boilerplate"
+SYSLOG_TAG = "noelwilson"
 SYSLOG_FACILITY = logging.handlers.SysLogHandler.LOG_LOCAL2
 
 # See PEP 391 and logconfig for formatting help.  Each section of LOGGERS
@@ -55,7 +53,7 @@ SYSLOG_FACILITY = logging.handlers.SysLogHandler.LOG_LOCAL2
 # unless propagate: True is set.
 LOGGERS = {
    'loggers': {
-        'boilerplate': {},
+        'noelwilson': {},
     },
 }
 
@@ -64,9 +62,6 @@ if settings['debug']:
 else:
     LOG_LEVEL = logging.INFO
 USE_SYSLOG = DEPLOYMENT != DeploymentType.SOLO
-
-logconfig.initialize_logging(SYSLOG_TAG, SYSLOG_FACILITY, LOGGERS,
-        LOG_LEVEL, USE_SYSLOG)
 
 if options.config:
     tornado.options.parse_config_file(options.config)
