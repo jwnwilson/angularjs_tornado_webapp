@@ -18,6 +18,7 @@ def main():
     app = TornadoApp()
     http_server = tornado.httpserver.HTTPServer(app)
     http_server.listen(options.port)
+    print('Server running on port: {}'.format(options.port))
     tornado.ioloop.IOLoop.instance().start()
 
 
