@@ -1,9 +1,19 @@
-<html>
-    <head>
-        <title>Tornado Boilerplate</title>
-    </head>
-
-    <body>
-        <h1>It worked!</h1>
-    </body>
+<!doctype html>
+<html ng-app="app" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular App</title>
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="{{ static_url('js/bundle.js') }}"></script>
+  <base href="/">
+  {% block head %}
+  {% end %}
+</head>
+<body>
+  <app>
+    {% block main %}
+    {% end %}
+  </app>
+</body>
 </html>

@@ -1,3 +1,5 @@
 *.pyc
 venv
 .cache
+front-end/node_modules
+static/*
