@@ -1,8 +1,9 @@
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-    entry: "./app/app.js",
+    entry: ["./apps/main/scripts/app.js", "./apps/main/style/main.scss"],
     output: {
         path: path.resolve(__dirname, "../static/js"),
         filename: "bundle.js",
@@ -22,9 +23,19 @@ module.exports = {
                 configFile: './config/eslint.json'
               }
           },
+          {
+              test: /\.scss$/,
+              use: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                //resolve-url-loader may be chained before sass-loader if necessary
+                use: ['css-loader', 'sass-loader']
+              })
+          },
           { test: /\.css$/, loader: "style!css" },
           { test: /\.html$/, loader: "mustache-loader" },
-          { test: /\.json$/, loader: "json-loader" }]
+          { test: /\.json$/, loader: "json-loader" }
+
+        ]
     },
 
     resolve: {
@@ -33,7 +44,9 @@ module.exports = {
 
     plugins: [
       new CopyWebpackPlugin([
-        { from: 'app/**/*.html', to: path.resolve(__dirname, "../static") }
-      ])
+        { from: 'apps/**/*.html', to: path.resolve(__dirname, "../static") },
+        { from: 'components/**/*.html', to: path.resolve(__dirname, "../static") }
+      ]),
+      new ExtractTextPlugin('../css/style.css')
     ]
 };

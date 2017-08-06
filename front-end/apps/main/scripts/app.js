@@ -5,13 +5,13 @@ require("angular-resource/angular-resource");
 /* Config Vars */
 var routesConfig = require("./routes");
 /* Components */
-require("./components/home/home");
+require("../../../components/home/scripts/home");
 
 /* Globals */
 _ = require("lodash");
 _urlPrefixes = {
   API: "api/v1/",
-  TEMPLATES: "static/app/"
+  TEMPLATES: "static/"
 };
 
 /* Components */
