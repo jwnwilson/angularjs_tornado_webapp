@@ -3,7 +3,11 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-    entry: ["./apps/main/scripts/app.js", "./apps/main/style/main.scss"],
+    entry: [
+      "./apps/main/scripts/app.js",
+      "./apps/main/style/main.scss",
+      "bootstrap-loader"
+    ],
     output: {
         path: path.resolve(__dirname, "../static/js"),
         filename: "bundle.js",
@@ -33,7 +37,10 @@ module.exports = {
           },
           { test: /\.css$/, loader: "style!css" },
           { test: /\.html$/, loader: "mustache-loader" },
-          { test: /\.json$/, loader: "json-loader" }
+          { test: /\.json$/, loader: "json-loader" },
+          { test: /bootstrap-sass\/assets\/javascripts\//, loader: 'imports-loader?jQuery=jquery' },
+          { test: /\.(woff2?|svg)$/, loader: 'url-loader?limit=10000' },
+          { test: /\.(ttf|eot)$/, loader: 'file-loader' }
 
         ]
     },

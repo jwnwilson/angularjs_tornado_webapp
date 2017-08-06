@@ -5,14 +5,14 @@
   <title>Angular App</title>
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{{ static_url('css/style.css') }}"></link>
   <script src="{{ static_url('js/bundle.js') }}"></script>
+  <link rel="stylesheet" href="{{ static_url('css/style.css') }}"></link>
   <base href="/">
   {% block head %}
   {% end %}
 </head>
 <body>
-  <app>
+  <app class="container">
     {% block main %}
     {% end %}
   </app>
