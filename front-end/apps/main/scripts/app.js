@@ -6,6 +6,7 @@ require("angular-resource/angular-resource");
 var routesConfig = require("./routes");
 /* Components */
 require("../../../components/home/scripts/home");
+require("../../../components/about/scripts/about");
 
 /* Globals */
 _ = require("lodash");
@@ -19,6 +20,7 @@ _urlPrefixes = {
 /* App Dependencies */
 angular.module("app", [
   "Home",
+  "About",
   "ngResource",
   "ngRoute",
 ]);

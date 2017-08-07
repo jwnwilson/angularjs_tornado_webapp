@@ -1,6 +1,6 @@
 function HomeController() {
   var that = this;
-  that.foo = "Foo!";
+  that.foo = "Home!";
   console.log(that); // should print out the controller object
 }
 

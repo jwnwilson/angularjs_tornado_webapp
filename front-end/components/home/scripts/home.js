@@ -1,3 +1,3 @@
 angular.module("Home", []);
 
-require("./home-controller");  
+require("./controller");  
