@@ -1,5 +1,21 @@
 <div ng-controller="HomeController as ctrl">
-    <div>
-        <h1>Home!</h1>
-    </div>
+    <div class="intro-message">
+        <div>
+            <h2 class="header-link">CV</h2>
+            <h2 class="header-link">Github</h2>
+        </div>
+        <hr class="white-line"/>
+        <div class="intro-text-box">
+           <h1>Intro</h1>
+            <div class="intro-text">
+                {{introText}}
+            </div>
+        </div>
+        <div class="contact-text-box">
+           <h1>Contact</h1>
+            <div class="contact-text">
+                {{contactText}}
+            </div>
+        </div>
+	</div>
 </div>  

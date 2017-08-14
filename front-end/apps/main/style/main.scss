@@ -1,6 +1,8 @@
 // base.scss
 
 @import 'reset';
+@import 'mixin';
+@import '../../../components/home/style/home';
 
 body {
   font: 100% Helvetica, sans-serif;
@@ -8,10 +10,16 @@ body {
   padding-top: 50px;
 }
 
-.clear{
-  clear: both;
-}
-
 .starter-template {
   padding: 40px 15px;
+}
+
+.clear {
+  clear: both;
+  margin: $default-margin;
+}
+
+.white-line{
+    color: white;
+    clear: both;
 }

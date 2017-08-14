@@ -1,0 +1,26 @@
+@import '../../../apps/main/style/mixin';
+
+.intro-message{
+    @include black-box();
+}
+
+.header-link{
+    @include float-left();
+}
+
+.content-box {
+    &:after {
+       content: " ";
+       display: block;
+       height: 0;
+       clear: both;
+   }
+}
+
+.intro-text-box {
+    @include float-content(60%);
+}
+
+.contact-text-box {
+    @include float-content(30%);
+}
