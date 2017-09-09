@@ -1,0 +1,54 @@
+version: 2
+jobs:
+  build-be:
+    working_directory: /src
+    docker:
+      - image: python
+    steps:
+      - checkout
+      - restore_cache:
+          key: v1-be-{{ .Revision }}
+          paths:
+            - /src/server/env
+      - run:
+          command: 'cd server; ./scripts/setup.sh'
+      - save_cache:
+          key: v1-be-{{ .Revision }}
+          paths:
+            - /src/server/env
+      - run:
+          command: 'cd server; ./scripts/test.sh'
+      - store_artifacts:
+          path: ./server/.cov
+          prefix: be-tests
+  build-fe:
+    working_directory: /src
+    docker:
+      - image: node:6.11.2
+    steps:
+      - checkout
+      - restore_cache:
+          key: v1-fe-{{ checksum "client/package.json" }}
+          paths:
+            - /src/client
+      - run:
+          command: 'cd client; npm install; webpack'
+      - save_cache:
+          key: v1-fe-{{ checksum "client/package.json" }}
+          paths:
+            - /src/client
+      - save_cache:
+          key: v1-fe-static-{{ .Revision }}
+          paths:
+            - /src/static
+      - run:
+          command: 'cd client; npm test'
+      - store_artifacts:
+          path: /src/client/test-results
+          prefix: fe-tests
+workflows:
+  version: 2
+  build_test_deploy:
+    jobs:
+      - build-be
+      - build-fe

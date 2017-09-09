@@ -1,0 +1,29 @@
+version: '2'
+services:
+  client:
+    image: node:6.11.2
+    user: root
+    working_dir: /src/client
+    command: webpack -w true
+    container_name: nw_client
+    tty: true
+    volumes:
+      - .:/src
+      - node_modules:/src/client/node_modules
+
+  server:
+    image: python
+    user: root
+    working_dir: /src/server
+    command: python app.py
+    container_name: nw_server
+    tty: true
+    ports:
+      - 0.0.0.0:8888:8888
+    volumes:
+      - .:/src
+      - venv:/src/server/venv
+
+volumes:
+  node_modules:
+  venv:

@@ -1,5 +1,5 @@
 *.pyc
-venv
 .cache
-front-end/node_modules
+client/node_modules
+server/venv
 static/*
