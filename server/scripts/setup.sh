@@ -14,7 +14,7 @@ then
 fi
 
 # Simple setup script to install temporary venv into project directory to make cleaning up easier
-if [ ! -d ./venv ]
+if [ ! -d ./venv/bin/ ]
 then
     python3 -m venv venv
     source ./venv/bin/activate
