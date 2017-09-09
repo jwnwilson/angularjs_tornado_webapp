@@ -12,7 +12,9 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 define("port", default=8888, help="run on the given port", type=int)
 define("config", default=None, help="tornado config file")
 define("debug", default=False, help="debug mode")
-tornado.options.parse_command_line()
+
+if not os.environ.get("TEST"):
+    tornado.options.parse_command_line()
 
 MEDIA_ROOT = path(PROJECT_ROOT, 'media')
 STATIC_ROOT = path(PROJECT_ROOT, 'static')

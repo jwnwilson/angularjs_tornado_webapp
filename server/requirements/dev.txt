@@ -1,4 +1,6 @@
+coverage==4.4.1
 py==1.4.33
 pytest==3.1.0
+pytest-cov==2.5.1
 pytest-tornado==0.4.5
 tornado==4.5.1

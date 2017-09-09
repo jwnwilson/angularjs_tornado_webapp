@@ -1,6 +1,10 @@
+import os
 import pytest
 
+os.environ["TEST"] = 'True'
+
 from app import TornadoApp
+
 application = TornadoApp()
 
 
