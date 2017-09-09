@@ -4,7 +4,7 @@ services:
     image: node:6.11.2
     user: root
     working_dir: /src/client
-    command: webpack -w true
+    command: ./node_modules/.bin/webpack -w true
     container_name: nw_client
     tty: true
     volumes:
