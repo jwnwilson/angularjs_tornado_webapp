@@ -16,4 +16,7 @@ setup:
 	$(COMPOSE) run $(CLIENT) npm install
 
 run:
-    $(COMPOSE) up
+	$(COMPOSE) up
+
+shell:
+	$(COMPOSE) run $(SERVER) bash

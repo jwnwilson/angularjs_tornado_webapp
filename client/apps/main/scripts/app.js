@@ -5,7 +5,7 @@ require("angular-resource/angular-resource");
 /* Config Vars */
 var routesConfig = require("./routes");
 /* Components */
-require("../../../components/home/scripts/home");
+require("../../../components/text_box/scripts/main");
 require("../../../components/about/scripts/about");
 
 /* Globals */

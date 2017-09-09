@@ -12,7 +12,9 @@ services:
       - node_modules:/src/client/node_modules
 
   server:
-    image: python
+    build:
+      context: .
+      dockerfile: ./ops/Dockerfile
     user: root
     working_dir: /src/server
     command: python app.py
