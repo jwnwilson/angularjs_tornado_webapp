@@ -32,11 +32,13 @@ jobs:
           paths:
             - /src/client
       - run:
-          command: 'cd client; npm install; webpack'
+          command: 'cd client; npm install'
       - save_cache:
           key: v1-fe-{{ checksum "client/package.json" }}
           paths:
             - /src/client
+      - run:
+          command: 'cd client; ./node_modules/.bin/webpack'
       - save_cache:
           key: v1-fe-static-{{ .Revision }}
           paths:
