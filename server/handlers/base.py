@@ -1,7 +1,8 @@
 import json
+import logging
+
 import tornado.web
 
-import logging
 logger = logging.getLogger(__name__)
 
 

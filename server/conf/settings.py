@@ -1,11 +1,12 @@
 import logging
+import os
+
 import tornado
 import tornado.template
-import os
 from tornado.options import define, options
 
 # Make filepaths relative to settings.
-path = lambda root,*a: os.path.join(root, *a)
+path = lambda root, *a: os.path.join(root, *a)
 ROOT = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

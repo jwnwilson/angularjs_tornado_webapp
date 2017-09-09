@@ -5,7 +5,7 @@ import tornado.ioloop
 import tornado.web
 from tornado.options import options
 
-from settings import settings
+from conf.settings import settings
 from urls import url_patterns
 
 
