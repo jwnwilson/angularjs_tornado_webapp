@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Run with "source ./setup.sh"
+# Run with "source ./scripts/setup.sh"
 
 command_exists () {
     type "$1" &> /dev/null ;
