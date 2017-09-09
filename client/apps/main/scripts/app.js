@@ -5,8 +5,8 @@ require("angular-resource/angular-resource");
 /* Config Vars */
 var routesConfig = require("./routes");
 /* Components */
-require("../../../components/text_box/scripts/main");
-require("../../../components/about/scripts/about");
+require("../../../components/home/scripts/main");
+require("../../../components/about/scripts/main");
 
 /* Globals */
 _ = require("lodash");

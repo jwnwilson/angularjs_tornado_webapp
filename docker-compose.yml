@@ -17,7 +17,7 @@ services:
       dockerfile: ./ops/Dockerfile
     user: root
     working_dir: /src/server
-    command: python app.py
+    command: ./venv/bin/python3 app.py
     container_name: nw_server
     tty: true
     ports:

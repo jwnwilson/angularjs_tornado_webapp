@@ -7,8 +7,8 @@ from tornado.options import define, options
 
 # Make filepaths relative to settings.
 path = lambda root, *a: os.path.join(root, *a)
-ROOT = os.path.dirname(os.path.abspath(__file__))
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_ROOT = os.path.dirname(ROOT)
 
 define("port", default=8888, help="run on the given port", type=int)
 define("config", default=None, help="tornado config file")
