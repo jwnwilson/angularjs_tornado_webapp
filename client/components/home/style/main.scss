@@ -8,6 +8,10 @@
     @include float-left();
 }
 
+.hero-banner {
+    @include hero-image('/static/components/home/assets/img/laptop_coffee.jpg');
+}
+
 .content-box {
     &:after {
        content: " ";

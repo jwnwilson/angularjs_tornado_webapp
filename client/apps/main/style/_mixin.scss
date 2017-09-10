@@ -1,4 +1,4 @@
-$default-margin: 10px 20px;
+@import 'variables';
 
 @mixin float-left() {
   float:left;
@@ -33,4 +33,27 @@ $default-margin: 10px 20px;
 
 @mixin clearfix() {
 
+}
+
+@mixin hero-image($img) {
+    position: relative;
+    background-image: url($img);
+    background-size: cover;
+    height: 68vh;
+    min-height: 54rem; // Covers browsers that don't understand viewport units.
+    max-height: 68rem;
+    overflow: hidden;
+
+    @media (max-width : $mq-mobile-landscape) {
+		@content;
+		background-position: -200px 0px;
+	}
+
+    // Generic image settings between the two pseudo elements.
+    &::before,
+    &::after {
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 }

@@ -49,7 +49,13 @@ module.exports = {
     plugins: [
       new CopyWebpackPlugin([
         { from: 'apps/**/*.html', to: path.resolve(__dirname, "../static") },
-        { from: 'components/**/*.html', to: path.resolve(__dirname, "../static") }
+        { from: 'components/**/*.html', to: path.resolve(__dirname, "../static") },
+        { from: 'apps/**/*.jpg', to: path.resolve(__dirname, "../static") },
+        { from: 'components/**/*.jpg', to: path.resolve(__dirname, "../static") },
+        { from: 'apps/**/*.png', to: path.resolve(__dirname, "../static") },
+        { from: 'components/**/*.png', to: path.resolve(__dirname, "../static") },
+        { from: 'apps/**/*.svg', to: path.resolve(__dirname, "../static") },
+        { from: 'components/**/*.svg', to: path.resolve(__dirname, "../static") },
       ]),
       new ExtractTextPlugin('../css/style.css')
     ]

@@ -1,5 +1,9 @@
 {% extends base.html %}
 
+{% block nav %}
+  {% include 'nav.html' %}
+{% end %}
+
 {% block main %}
   <div ng-view></div>
 {% end %}
