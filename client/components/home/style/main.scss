@@ -1,15 +1,28 @@
 @import '../../../apps/main/style/mixin';
 
 .intro-message{
-    @include black-box();
-}
-
-.header-link{
-    @include float-left();
+    @include round-box(black, white);
 }
 
 .hero-banner {
     @include hero-image('/static/components/home/assets/img/laptop_coffee.jpg');
+
+    .hero-banner__content {
+        text-align: center;
+        color: #fff;
+        text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+        display: flex;
+        left: inherit;
+        height: 100%;
+        min-height: 64rem;
+        max-height: 68rem;
+        margin: inherit;
+        padding: 0rem 10rem;
+        position: relative;
+        top: inherit;
+        transform: none;
+        padding: 10rem;
+    }
 }
 
 .content-box {
@@ -18,13 +31,31 @@
        display: block;
        height: 0;
        clear: both;
+       display: flex;
    }
 }
 
 .intro-text-box {
-    @include float-content(60%);
+    @include trans-box(white, black);
+    width: 100%;
 }
 
 .contact-text-box {
     @include float-content(30%);
+}
+
+.links-container {
+    @extend .content-box;
+    width:100%;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-link{
+    @extend .content-box;
+    @include float-left(5px 20px);
+    width: 175px;
+    display: inline-block;
+    font-size: 25px;
 }

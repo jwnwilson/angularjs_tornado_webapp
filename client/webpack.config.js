@@ -6,12 +6,14 @@ module.exports = {
     entry: [
       "./apps/main/scripts/app.js",
       "./apps/main/style/main.scss",
-      "bootstrap-loader"
+      "bootstrap-loader",
+      "font-awesome-loader!./font-awesome.config.js"
     ],
     output: {
-        path: path.resolve(__dirname, "../static/js"),
+        path: path.resolve(__dirname, "../static"),
         filename: "bundle.js",
         sourceMapFilename: "bundle.js.map",
+        publicPath: "./static/"
     },
     module: {
         loaders: [
@@ -37,7 +39,15 @@ module.exports = {
           { test: /\.json$/, loader: "json-loader" },
           { test: /bootstrap-sass\/assets\/javascripts\//, loader: 'imports-loader?jQuery=jquery' },
           { test: /\.(woff2?|svg)$/, loader: 'url-loader?limit=10000' },
-          { test: /\.(ttf|eot)$/, loader: 'file-loader' }
+          { test: /\.(ttf|eot)$/, loader: 'file-loader' },
+           // parse config to build font-awesome source
+          {
+            test: /font-awesome\.config\.js/,
+            use: [
+              { loader: 'style-loader' },
+              { loader: 'font-awesome-loader' },
+            ],
+          }
 
         ]
     },
