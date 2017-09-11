@@ -67,6 +67,6 @@ module.exports = {
         { from: 'apps/**/*.svg', to: path.resolve(__dirname, "../static") },
         { from: 'components/**/*.svg', to: path.resolve(__dirname, "../static") },
       ]),
-      new ExtractTextPlugin('../css/style.css')
+      new ExtractTextPlugin('../static/css/style.css')
     ]
 };

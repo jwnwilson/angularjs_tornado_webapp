@@ -25,27 +25,20 @@
     }
 }
 
-.content-box {
-    &:after {
-       content: " ";
-       display: block;
-       height: 0;
-       clear: both;
-       display: flex;
-   }
-}
-
 .intro-text-box {
     @include trans-box(white, black);
     width: 100%;
 }
 
-.contact-text-box {
+.contact-text {
+    @include float-content(30%);
+}
+
+.into-text {
     @include float-content(30%);
 }
 
 .links-container {
-    @extend .content-box;
     width:100%;
     text-align: center;
     display: flex;
@@ -53,9 +46,6 @@
 }
 
 .header-link{
-    @extend .content-box;
-    @include float-left(5px 20px);
     width: 175px;
-    display: inline-block;
     font-size: 25px;
 }
