@@ -10,7 +10,7 @@ function routesConfig($routeProvider) {
     })
     .when("/hobbies", {
       templateUrl: _urlPrefixes.TEMPLATES + "components/hobbies/templates/hobbies.html",
-      label: "Work"
+      label: "Hobbies"
     })
     .otherwise({
       templateUrl: _urlPrefixes.TEMPLATES + "apps/main/templates/404.html"

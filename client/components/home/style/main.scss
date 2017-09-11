@@ -9,33 +9,42 @@
 
     .hero-banner__content {
         text-align: center;
-        color: #fff;
-        text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-        display: flex;
+        display: block;
         left: inherit;
         height: 100%;
         min-height: 64rem;
         max-height: 68rem;
         margin: inherit;
-        padding: 0rem 10rem;
         position: relative;
         top: inherit;
         transform: none;
         padding: 10rem;
+
+        @media (max-width : $mq-tablet-portrait) {
+            padding: 5rem;
+        }
+        @media (max-width : $mq-mobile-landscape) {
+            padding: 2rem;
+        }
     }
 }
 
 .intro-text-box {
     @include trans-box(white, black);
     width: 100%;
+    display:block;
+    overflow:auto;
 }
 
 .contact-text {
-    @include float-content(30%);
+    @include float-content(100%);
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
 }
 
-.into-text {
-    @include float-content(30%);
+.intro-text {
+    font-size: 20px;
 }
 
 .links-container {
@@ -48,4 +57,10 @@
 .header-link{
     width: 175px;
     font-size: 25px;
+}
+
+.web-text{
+    @media (max-width : $mq-tablet-portrait) {
+        display: none;
+    }
 }

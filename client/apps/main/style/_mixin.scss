@@ -35,7 +35,6 @@
 @mixin float-content($percent) {
     float:left;
     width:$percent;
-    height:300px;
 }
 
 @mixin clearfix() {
@@ -49,7 +48,7 @@
     height: 100%;
     min-height: 54rem; // Covers browsers that don't understand viewport units.
     max-height: 68rem;
-    overflow: hidden;
+    overflow: auto;
 
     @media (max-width : $mq-tablet-portrait) {
 		@content;
