@@ -14,16 +14,23 @@ _urlPrefixes = {
   API: "api/v1/",
   TEMPLATES: "static/"
 };
+var _mqWidth = {
+  mobileLandscape: 480,
+  tabletPortrait: 768,
+  tabletLandscape: 1024,
+  desktop: 1382
+};
 
 /* Components */
 
 /* App Dependencies */
-angular.module("app", [
+var app = angular.module("app", [
   "Home",
   "Work",
   "ngResource",
   "ngRoute",
 ]);
+app.value("_mqWidth", _mqWidth);
 
 /* App Config */
 angular.module("app").config(routesConfig);

@@ -59,8 +59,14 @@
     font-size: 25px;
 }
 
-.web-text{
+.link-span{
+    width: 175px;
+
+    @media (max-width : $mq-tablet-landscape) {
+        width: 100px;
+    }
     @media (max-width : $mq-tablet-portrait) {
         display: none;
     }
+
 }
