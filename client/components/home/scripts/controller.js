@@ -1,10 +1,10 @@
-function HomeController($window) {
-  var that = this;
-  that.foo = "Home!";
-  console.log(that); // should print out the controller object
+function HomeController($scope, $window) {
+  $scope.cv_text = "CV";
+  $scope.github_text = "Github";
+  $scope.linkedin_text = "Linked In";
+
 
   var appWindow = angular.element($window);
-
   appWindow.bind("resize", function () {
     console.log("Resized your browser");
   });
@@ -12,6 +12,7 @@ function HomeController($window) {
 
 angular.module("Home")
   .controller("HomeController", [
+    "$scope",
     "$window",
     HomeController
   ]);
