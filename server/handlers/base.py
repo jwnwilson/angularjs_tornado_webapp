@@ -3,6 +3,8 @@ import logging
 
 import tornado.web
 
+from db.client import db_client
+
 logger = logging.getLogger(__name__)
 
 
@@ -10,6 +12,11 @@ class BaseHandler(tornado.web.RequestHandler):
     """A class to collect common handler methods - all other handlers should
     subclass this one.
     """
+    @property
+    def db(self):
+        if not hasattr(self, '_db'):
+            self._db = db_client()
+        return self._db
 
     def load_json(self):
         """Load JSON from the request body and store them in

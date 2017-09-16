@@ -25,7 +25,17 @@ services:
     volumes:
       - .:/src
       - venv:/src/server/venv
+    links:
+      - db
+
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - db:/data
 
 volumes:
   node_modules:
   venv:
+  db:

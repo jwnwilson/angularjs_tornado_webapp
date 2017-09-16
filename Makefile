@@ -13,6 +13,7 @@ help:
 COMPOSE = docker-compose
 SERVER = server
 CLIENT = client
+DB = db
 
 setup:
 	$(COMPOSE) run $(SERVER) ./scripts/setup.sh
@@ -20,6 +21,12 @@ setup:
 
 run:
 	$(COMPOSE) up
+
+run-db:
+	$(COMPOSE) run --service-ports $(DB)
+
+run-be:
+	$(COMPOSE) run --service-ports $(SERVER)
 
 test-be:
 	$(COMPOSE) run $(SERVER) ./scripts/pylint.sh
