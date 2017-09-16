@@ -29,13 +29,13 @@ services:
       - db
 
   db:
-    image: mongo
+    image: mongo:3.4.0
     ports:
       - "27017:27017"
     volumes:
-      - db:/data
+      - db_data:/data/db
 
 volumes:
   node_modules:
   venv:
-  db:
+  db_data:

@@ -23,7 +23,7 @@ run:
 	$(COMPOSE) up
 
 run-db:
-	$(COMPOSE) run --service-ports $(DB)
+	$(COMPOSE) run $(DB) bash
 
 run-be:
 	$(COMPOSE) run --service-ports $(SERVER)
