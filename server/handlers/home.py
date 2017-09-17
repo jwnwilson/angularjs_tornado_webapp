@@ -1,3 +1,4 @@
+import json
 import logging
 
 import tornado.web
@@ -10,12 +11,14 @@ logger = logging.getLogger(__name__)
 class HomeHandler(BaseHandler):
     @tornado.web.asynchronous
     def get(self):
-        self.db.home.find().to_list(1, callback=self._got_text)
+        self.db.pages.find_one({'page': 'home'}, callback=self._got_page_text)
 
-    def _got_text(self, text, error):
+    def _got_page_text(self, page_data, error):
+        context = {}
         if error:
             raise tornado.web.HTTPError(500, error)
-        elif text:
-            pass
-        self.render('index.html')
+        elif page_data:
+            context['intro_text'] = page_data['intro_text']
+            context['intro_title'] = page_data['intro_title']
+        self.render('index.html', context=json.dumps(context))
         self.finish()

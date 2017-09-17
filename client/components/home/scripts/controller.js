@@ -6,6 +6,7 @@ function HomeController($scope, $window, _mqWidth) {
   $scope.cv_text = self.cv_text;
   $scope.github_text = self.github_text;
   $scope.linkedin_text = self.linkedin_text;
+  $scope.context = $window.CONTEXT;
 
   var appWindow = angular.element($window);
   appWindow.bind("resize", function () {

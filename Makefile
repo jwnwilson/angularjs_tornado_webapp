@@ -28,6 +28,9 @@ run-db:
 run-be:
 	$(COMPOSE) run --service-ports $(SERVER)
 
+run-fe:
+	$(COMPOSE) run $(CLIENT)
+
 test-be:
 	$(COMPOSE) run $(SERVER) ./scripts/pylint.sh
 	$(COMPOSE) run $(SERVER) ./scripts/test.sh
