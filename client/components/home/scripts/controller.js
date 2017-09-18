@@ -3,14 +3,22 @@ function HomeController($scope, $window, _mqWidth) {
   self.cv_text = "CV";
   self.github_text = "Github";
   self.linkedin_text = "Linked In";
+  self.hide_text_limit = _mqWidth.mobileLandscape;
   $scope.cv_text = self.cv_text;
   $scope.github_text = self.github_text;
   $scope.linkedin_text = self.linkedin_text;
   $scope.context = $window.CONTEXT;
 
+  if( $window.innerWidth < self.hide_text_limit ){
+    $scope.github_text = "";
+    $scope.linkedin_text = "";
+  }
+
   var appWindow = angular.element($window);
-  appWindow.bind("resize", function () {
-    if( $window.innerWidth < _mqWidth.mobileLandscape ){
+  appWindow.bind("resize", hide_text);
+
+  function hide_text () {
+    if( $window.innerWidth < self.hide_text_limit ){
       $scope.$apply(function() {
         $scope.github_text = "";
         $scope.linkedin_text = "";
@@ -22,8 +30,7 @@ function HomeController($scope, $window, _mqWidth) {
         $scope.linkedin_text = self.linkedin_text;
       });
     }
-    console.log("Resized your browser");
-  });
+  }
 }
 
 angular.module("Home")

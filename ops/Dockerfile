@@ -1,4 +1,4 @@
 FROM python
-MAINTAINER Noel Wilson <noel.wilson@rehabstudio.com>
+MAINTAINER Noel Wilson <jwnwilson@gmail.com>
 
 COPY ./ops/bashrc /root/.bashrc

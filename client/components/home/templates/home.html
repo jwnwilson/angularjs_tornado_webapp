@@ -5,9 +5,12 @@
                 <h1>{{ context.intro_title }}</h1>
                 <div class="links-container">
                     <span class="link-span"></span>
-                    <h2 class="header-link" style="width:125px;">{{cv_text}} <i class="fa fa-file" aria-hidden="true"></i></h2>
-                    <h2 class="header-link">{{github_text}} <i class="fa fa-github" aria-hidden="true"></i></h2>
-                    <h2 class="header-link">{{linkedin_text}} <i class="fa fa-linkedin-square" aria-hidden="true"></i></h2>
+                    <a class="link-anchor" href="{{context.cv_link}}">
+                      <h2 class="header-link">{{cv_text}} <i class="fa fa-file" aria-hidden="true"></i></h2></a>
+                    <a class="link-anchor" href="{{context.github_link}}">
+                      <h2 class="header-link">{{github_text}} <i class="fa fa-github" aria-hidden="true"></i></h2></a>
+                    <a class="link-anchor" href="{{context.linkedin_link}}">
+                      <h2 class="header-link">{{linkedin_text}} <i class="fa fa-linkedin-square" aria-hidden="true"></i></h2></a>
                     <span class="link-span"></span>
                 </div>
                 <div class="intro-text">
@@ -19,4 +22,4 @@
             </div>
         </div>
     </div>
-</div>  
+</div>
