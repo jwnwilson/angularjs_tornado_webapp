@@ -3,6 +3,7 @@ import logging
 
 import tornado.web
 
+from db.client import sanitise_data
 from handlers.base import BaseHandler
 
 logger = logging.getLogger(__name__)
@@ -18,7 +19,6 @@ class HomeHandler(BaseHandler):
         if error:
             raise tornado.web.HTTPError(500, error)
         elif page_data:
-            context['intro_text'] = page_data['intro_text']
-            context['intro_title'] = page_data['intro_title']
+            context = sanitise_data(page_data)
         self.render('index.html', context=json.dumps(context))
         self.finish()

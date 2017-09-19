@@ -15,15 +15,14 @@ SERVER = server
 CLIENT = client
 DB = db
 
-setup:
-	$(COMPOSE) run $(SERVER) ./scripts/setup.sh
-	$(COMPOSE) run $(CLIENT) npm install
+build:
+	$(COMPOSE) build
 
 run:
 	$(COMPOSE) up
 
 run-db:
-	$(COMPOSE) run $(DB) bash
+	$(COMPOSE) run --service-ports $(DB)
 
 run-be:
 	$(COMPOSE) run --service-ports $(SERVER)

@@ -14,7 +14,7 @@ services:
   server:
     build:
       context: .
-      dockerfile: ./ops/Dockerfile
+      dockerfile: ./ops/docker_server
     user: root
     working_dir: /src/server
     command: ./venv/bin/python3 app.py
@@ -34,6 +34,13 @@ services:
       - "27017:27017"
     volumes:
       - db_data:/data/db
+
+  db-setup:
+    build:
+      context: .
+      dockerfile: ./ops/docker_mongo_setup
+    links:
+      - db
 
 volumes:
   node_modules:

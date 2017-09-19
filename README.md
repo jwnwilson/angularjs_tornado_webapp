@@ -10,7 +10,6 @@ https://github.com/bueda/tornado-boilerplate
 
 To start a local dev server for the front end and backend run:
 
-$  make setup
+$  make build
 
 $  make run
- 
