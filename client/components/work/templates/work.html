@@ -1,9 +1,7 @@
 <div ng-controller="WorkController as ctrl">
   <div class="project-container">
-    <div ng-repeat="for project in projects">
-        <h1>{{ project.title }}</h1>
-        <p>{{ project.text }}</p>
-        <a href="{{ project.url }}">link</a>
+    <div ng-repeat="project in projects">
+        <workdirective project="project"></workdirective>
     </div>
   </div>
 </div>
