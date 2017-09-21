@@ -1,25 +1,21 @@
 <div ng-controller="HomeController as ctrl" ngCloak>
-    <div class="hero-banner">
-        <div class="hero-banner__content">
-            <div class="intro-text-box">
-                <h1>{{ context.intro_title }}</h1>
-                <div class="links-container">
-                    <span class="link-span"></span>
-                    <a class="link-anchor" href="{{context.cv_link}}">
-                      <h2 class="header-link">{{cv_text}} <i class="fa fa-file" aria-hidden="true"></i></h2></a>
-                    <a class="link-anchor" href="{{context.github_link}}">
-                      <h2 class="header-link">{{github_text}} <i class="fa fa-github" aria-hidden="true"></i></h2></a>
-                    <a class="link-anchor" href="{{context.linkedin_link}}">
-                      <h2 class="header-link">{{linkedin_text}} <i class="fa fa-linkedin-square" aria-hidden="true"></i></h2></a>
-                    <span class="link-span"></span>
-                </div>
-                <div class="intro-text">
-                    <p>{{ context.intro_text }}</p>
-                </div>
-                <div class="contact-text">
-                    <p>{{ context.contact_text }}</p>
-                </div>
-            </div>
+    <div class="intro-text-box">
+        <h1>{{ context.intro_title }}</h1>
+        <div class="links-container">
+            <span class="link-span"></span>
+            <a class="link-anchor" href="{{context.cv_link}}">
+              <h2 class="header-link">{{cv_text}} <i class="fa fa-file" aria-hidden="true"></i></h2></a>
+            <a class="link-anchor" href="{{context.github_link}}">
+              <h2 class="header-link">{{github_text}} <i class="fa fa-github" aria-hidden="true"></i></h2></a>
+            <a class="link-anchor" href="{{context.linkedin_link}}">
+              <h2 class="header-link">{{linkedin_text}} <i class="fa fa-linkedin-square" aria-hidden="true"></i></h2></a>
+            <span class="link-span"></span>
+        </div>
+        <div class="intro-text">
+            <p>{{ context.intro_text }}</p>
+        </div>
+        <div class="contact-text">
+            <p>{{ context.contact_text }}</p>
         </div>
     </div>
 </div>

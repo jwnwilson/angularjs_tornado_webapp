@@ -7,7 +7,7 @@
 .hero-banner {
     @include hero-image('/static/components/home/assets/img/laptop_coffee.jpg');
 
-    .hero-banner__content {
+    &__content {
         text-align: center;
         display: block;
         left: inherit;
