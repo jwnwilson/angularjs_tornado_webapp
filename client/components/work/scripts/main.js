@@ -1,4 +1,7 @@
+"use strict";
+
 angular.module("Work", []);
 
 require("./controller");
-require("./directive");
+require("./directives/project");
+require("./services/getProjects");

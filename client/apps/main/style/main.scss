@@ -3,6 +3,7 @@
 @import 'reset';
 @import 'mixin';
 @import '../../../components/home/style/main';
+@import '../../../components/work/style/main';
 
 body {
   font: 100% Helvetica, sans-serif;
@@ -18,7 +19,6 @@ body {
 
 .clear {
   clear: both;
-  margin: $default-margin;
 }
 
 .white-line{

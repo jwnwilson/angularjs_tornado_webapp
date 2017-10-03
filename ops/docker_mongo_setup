@@ -1,4 +1,5 @@
 FROM mongo:3.4.0
 
 COPY server/db/data/pages.json /data/pages.json
+
 CMD mongoimport --host db --db nw_db --collection pages --type json --file /data/pages.json --jsonArray
