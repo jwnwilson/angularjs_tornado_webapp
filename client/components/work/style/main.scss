@@ -1,0 +1,39 @@
+@import '../../../apps/main/style/mixin';
+
+$youtube-width : 420px;
+
+.work-title {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+
+.work-info {
+  display: flex;
+  padding: 2rem;
+
+  .work-media {
+    flex: 0 0 45%;
+
+    .youtube-container {
+      width: $youtube-width;
+      margin: auto;
+    }
+
+    .youtube {
+      width: $youtube-width;
+    }
+  }
+
+  .work-description {
+    flex: 1;
+    margin-right: 2rem;
+  }
+  .icon {
+    float: left;
+  }
+
+  .work-text {
+    font-size: 2rem;
+  }
+}
