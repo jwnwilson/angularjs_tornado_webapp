@@ -30,6 +30,7 @@ var app = angular.module("app", [
   "ngRoute",
 ]);
 app.value("_mqWidth", _mqWidth);
+app.value("_urlPrefixes", _urlPrefixes);
 
 /* App Config */
 angular.module("app").config(routesConfig);

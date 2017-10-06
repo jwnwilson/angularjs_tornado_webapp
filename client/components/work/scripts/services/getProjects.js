@@ -6,16 +6,21 @@
  *
  * @type {Function}
  */
-var Service = function($http) {
+var WorkService = function($http, _urlPrefixes) {
   this.$http = $http;
+  this._urlPrefixes = _urlPrefixes;
 };
 
-
-Service.prototype.getProjects = function() {
+WorkService.prototype.getProjects = function() {
+  this.$http.get(this._urlPrefixes["API"] + "projects").then(function(){
+    console.log("Here");
+  });
+  console.log("Here");
 };
 
-/**
- * Export function to be used as Angular service.
- * @type {Function|angular.Service}
-*/
-module.exports = Service;
+angular.module("Work")
+  .service("WorkService", [
+    "$http",
+    "_urlPrefixes",
+    WorkService
+  ]);

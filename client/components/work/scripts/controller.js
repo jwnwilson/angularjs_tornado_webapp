@@ -1,6 +1,6 @@
 "use strict";
 
-function WorkController($scope, $window) {
+function WorkController($scope, $window, WorkService) {
   $scope.context = $window.CONTEXT;
   $scope.projects = [
     {
@@ -9,20 +9,13 @@ function WorkController($scope, $window) {
       "youtube_url": "https://www.youtube.com/embed/8eh4N69zte4"
     }
   ];
+  WorkService.getProjects();
 }
 
 angular.module("Work")
   .controller("WorkController", [
     "$scope",
     "$window",
-    "$sceDelegate",
+    "WorkService",
     WorkController
-  ])
-  .config(function($sceDelegateProvider) {
-    $sceDelegateProvider.resourceUrlWhitelist([
-      // Allow same origin resource loads.
-      "self",
-      // Allow loading from our assets domain. **.
-      "https://www.youtube.com/embed/**"
-    ]);
-  });
+  ]);
