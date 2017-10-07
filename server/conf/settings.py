@@ -5,6 +5,9 @@ import tornado
 import tornado.template
 from tornado.options import define, options
 
+# Global settings
+API_prefix = r'/api/v1/'
+
 # Make filepaths relative to settings.
 path = lambda root, *a: os.path.join(root, *a)
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
