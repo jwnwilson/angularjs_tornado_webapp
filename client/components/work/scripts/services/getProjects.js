@@ -12,10 +12,9 @@ var WorkService = function($http, _urlPrefixes) {
 };
 
 WorkService.prototype.getProjects = function() {
-  this.$http.get(this._urlPrefixes["API"] + "projects").then(function(){
-    console.log("Here");
+  this.$http.get(this._urlPrefixes["API"] + "projects").then(function(projectData){
+    console.log(projectData);
   });
-  console.log("Here");
 };
 
 angular.module("Work")
