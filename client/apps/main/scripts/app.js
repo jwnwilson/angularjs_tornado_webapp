@@ -7,6 +7,7 @@ var routesConfig = require("./routes");
 /* Components */
 require("../../../components/home/scripts/main");
 require("../../../components/work/scripts/main");
+require("../../../components/header/scripts/controller");
 
 /* Globals */
 _ = require("lodash");
@@ -24,6 +25,7 @@ var _mqWidth = {
 
 /* App Dependencies */
 var app = angular.module("app", [
+  "Header",
   "Home",
   "Work",
   "ngResource",
