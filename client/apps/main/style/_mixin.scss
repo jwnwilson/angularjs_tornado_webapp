@@ -11,7 +11,7 @@
 }
 
 @mixin round-box($text-color, $back-color) {
-    color: $text-color;
+  color: $text-color;
 	background-color:$back-color;
 	padding:10px;
 	margin:0px;
@@ -44,7 +44,7 @@
 @mixin hero-image($img) {
     position: relative;
     background-image: url($img);
-    background-size: cover;
+    background-repeat: no-repeat;
     height: 100%;
     min-height: 54rem; // Covers browsers that don't understand viewport units.
     max-height: 68rem;
