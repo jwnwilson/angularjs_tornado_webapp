@@ -2,14 +2,10 @@
 
 function WorkController($scope, $window, WorkService) {
   $scope.context = $window.CONTEXT;
-  $scope.projects = [
-    {
-      "title": "test",
-      "text": "Hello project",
-      "youtube_url": "https://www.youtube.com/embed/8eh4N69zte4"
-    }
-  ];
-  WorkService.getProjects();
+  $scope.projects = [];
+  WorkService.getProjects().then(function(data) {
+    $scope.projects = data.data;
+  });
 }
 
 angular.module("Work")

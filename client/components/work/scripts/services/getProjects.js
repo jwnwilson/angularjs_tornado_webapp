@@ -12,8 +12,10 @@ var WorkService = function($http, _urlPrefixes) {
 };
 
 WorkService.prototype.getProjects = function() {
-  this.$http.get(this._urlPrefixes["API"] + "projects").then(function(projectData){
-    console.log(projectData);
+  return this.$http.get(this._urlPrefixes["API"] + "projects").then(function(projectData){
+    return projectData;
+  }, function(error){
+    console.log("Error retrieving projects: " + error);
   });
 };
 
