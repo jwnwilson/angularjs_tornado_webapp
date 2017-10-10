@@ -1,6 +1,8 @@
 "use strict";
 
-var work = angular.module("Work", []);
+var work = angular.module("Work", [
+  "ngMaterial"
+]);
 
 work.config(function($sceDelegateProvider) {
   $sceDelegateProvider.resourceUrlWhitelist([

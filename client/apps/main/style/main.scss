@@ -4,6 +4,7 @@
 @import 'mixin';
 @import '../../../components/home/style/main';
 @import '../../../components/work/style/main';
+@import '~angular-material/angular-material';
 
 body {
   font: 100% Helvetica, sans-serif;
@@ -31,5 +32,21 @@ body {
         content: "";
         display: table;
         clear: both;
+  }
+}
+
+md-content {
+  background-color: #333333;
+}
+
+md-tabs-canvas {
+  background-color: #222;
+}
+
+md-tabs {
+  color: #9d9d9d;
+
+  .md-tab.md-active {
+    color: #fff;
   }
 }

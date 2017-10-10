@@ -2,6 +2,10 @@
 
 $youtube-width : 420px;
 
+.work-tab-container {
+  @include hero-image('/static/components/home/assets/img/laptop_coffee.jpg');
+}
+
 .work-title {
   margin-top: 0;
   margin-bottom: 1rem;

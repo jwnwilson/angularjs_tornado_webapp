@@ -2,6 +2,11 @@
 require("angular/angular");
 require("angular-route/angular-route");
 require("angular-resource/angular-resource");
+require("angular-material/angular-material");
+require("angular-animate/angular-animate");
+require("angular-aria/angular-aria");
+
+
 /* Config Vars */
 var routesConfig = require("./routes");
 /* Components */
@@ -36,3 +41,6 @@ app.value("_urlPrefixes", _urlPrefixes);
 
 /* App Config */
 angular.module("app").config(routesConfig);
+angular.module("app").config(function($mdThemingProvider){
+  $mdThemingProvider.theme("default");
+});
