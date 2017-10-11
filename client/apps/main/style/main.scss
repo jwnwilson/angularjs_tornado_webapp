@@ -35,18 +35,24 @@ body {
   }
 }
 
-md-content {
-  background-color: #333333;
-}
-
 md-tabs-canvas {
   background-color: #222;
 }
 
-md-tabs {
-  color: #9d9d9d;
+md-content {
+  background-color: transparent;
 
-  .md-tab.md-active {
-    color: #fff;
+  md-tabs {
+    .md-tab {
+      color: #9d9d9d;
+    }
+    .md-tab.md-active {
+      color: #fff;
+      background-color: #090909;
+    }
+  }
+
+  md-ink-bar {
+    background-color: #fff;
   }
 }

@@ -3,7 +3,7 @@
 $youtube-width : 420px;
 
 .work-tab-container {
-  @include hero-image('/static/components/home/assets/img/laptop_coffee.jpg');
+  background-color: transparent;
 }
 
 .work-title {
@@ -39,5 +39,23 @@ $youtube-width : 420px;
 
   .work-text {
     font-size: 2rem;
+  }
+}
+
+md-content {
+  background-color: transparent;
+
+  md-tabs {
+    .md-tab {
+      color: #9d9d9d;
+    }
+    .md-tab.md-active {
+      color: #fff;
+      background-color: #090909;
+    }
+  }
+
+  md-ink-bar {
+    background-color: #fff;
   }
 }

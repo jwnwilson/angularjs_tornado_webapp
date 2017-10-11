@@ -13,7 +13,6 @@ work.config(function($sceDelegateProvider) {
   ]);
 });
 
-
 require("./controller");
 require("./directives/project");
 require("./services/getProjects");
