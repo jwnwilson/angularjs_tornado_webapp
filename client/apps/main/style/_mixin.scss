@@ -44,10 +44,12 @@
 @mixin hero-image($img) {
     position: relative;
     background-image: url($img);
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
+    background-attachment: fixed;
     height: 100%;
-    min-height: 54rem; // Covers browsers that don't understand viewport units.
+    min-height: 100vh; // Covers browsers that don't understand viewport units.
 
     @media (max-width : $mq-tablet-portrait) {
 		@content;

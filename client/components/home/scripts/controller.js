@@ -3,7 +3,7 @@ function HomeController($scope, $window, _mqWidth) {
   self.cv_text = "CV";
   self.github_text = "Github";
   self.linkedin_text = "Linked In";
-  self.hide_text_limit = _mqWidth.mobileLandscape;
+  self.hide_text_limit = _mqWidth.tabletPortrait;
   $scope.cv_text = self.cv_text;
   $scope.github_text = self.github_text;
   $scope.linkedin_text = self.linkedin_text;

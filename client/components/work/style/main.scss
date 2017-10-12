@@ -2,10 +2,10 @@
 
 $youtube-width : 420px;
 
-.work-tab-container {
-  background-color: transparent;
+.hero-banner-tabs {
+    @extend .hero-banner;
+    height: 100%;
 }
-
 .work-title {
   margin-top: 0;
   margin-bottom: 1rem;
@@ -39,23 +39,5 @@ $youtube-width : 420px;
 
   .work-text {
     font-size: 2rem;
-  }
-}
-
-md-content {
-  background-color: transparent;
-
-  md-tabs {
-    .md-tab {
-      color: #9d9d9d;
-    }
-    .md-tab.md-active {
-      color: #fff;
-      background-color: #090909;
-    }
-  }
-
-  md-ink-bar {
-    background-color: #fff;
   }
 }
