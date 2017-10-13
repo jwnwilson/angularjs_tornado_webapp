@@ -2,6 +2,6 @@ FROM mongo:3.4.0
 
 COPY server/db/data/pages.json /data/pages.json
 COPY server/db/data/projects.json /data/projects.json
+COPY ops/reset_db.sh /reset_db.sh
 
-CMD mongoimport --host db --db nw_db --collection pages --type json --file /data/pages.json --jsonArray
-CMD mongoimport --host db --db nw_db --collection projects --type json --file /data/projects.json --jsonArray
+CMD bash /reset_db.sh

@@ -14,6 +14,7 @@ COMPOSE = docker-compose
 SERVER = server
 CLIENT = client
 DB = db
+DB_SETUP = db-setup
 
 build:
 	$(COMPOSE) build
@@ -29,6 +30,10 @@ run-be:
 
 run-fe:
 	$(COMPOSE) run $(CLIENT)
+
+data:
+	$(COMPOSE) build --no-cache $(DB_SETUP)
+	$(COMPOSE) run $(DB_SETUP)
 
 test-be:
 	$(COMPOSE) run $(SERVER) ./scripts/pylint.sh

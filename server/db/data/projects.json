@@ -4,20 +4,35 @@
     "text": "Python based rigging tools scripted in Python for Maya.",
     "youtube_url": "https://www.youtube.com/embed/8eh4N69zte4",
     "project_image": "",
-    "icon": ""
+    "project_link": "",
+    "icon": "",
+    "category": "VFX"
   },
   {
     "title": "Rigging Show reel",
     "text": "Rigging skills from various projects using Python for Maya.",
     "youtube_url": "https://www.youtube.com/embed/r8ZGKYdUpEA?list=UU6Wm5YpKdNwvKSsY2dGeCXQ&hl=en_GB",
     "project_image": "",
-    "icon": ""
+    "project_link": "",
+    "icon": "",
+    "category": "VFX"
   },
   {
-    "title": "",
-    "text": "",
+    "title": "Digital Workshop",
+    "text": "Learning platform funded by google to provide online tuition for various online subjects.",
+    "youtube_url": "https://www.youtube.com/embed/r8ZGKYdUpEA?list=UU6Wm5YpKdNwvKSsY2dGeCXQ&hl=en_GB",
+    "project_image": "",
+    "project_link": "",
+    "icon": "",
+    "category": "Web"
+  },
+  {
+    "title": "Olympic Channel",
+    "text": "Olympic channel is an on deman streaming service for olympic content.",
     "youtube_url": "",
     "project_image": "",
-    "icon": ""
+    "project_link": "",
+    "icon": "",
+    "category": "Web"
   }
 ]
