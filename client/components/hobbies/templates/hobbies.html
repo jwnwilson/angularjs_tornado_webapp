@@ -4,11 +4,9 @@
       <md-tab label="Gymnastics">
         <md-content class="md-padding work-tab-container">
           <div ng-controller="WorkController as ctrl">
-            <div class="project-container">
-              <div ng-repeat="hobby in hobbies">
-                <div label="{{hobby.title}}" class="work-tab">
-                  <workdirective project="hobby"></workdirective>
-              </div>
+            <div ng-repeat="hobby in hobbies">
+              <div label="{{hobby.title}}" class="work-tab">
+                <workdirective project="hobby"></workdirective>
             </div>
           </div>
         </md-content>
