@@ -3,7 +3,7 @@
     <md-tabs md-dynamic-height md-border-bottom md-selected="selectedIndex" md-center-tabs="true">
       <md-tab label="VFX">
         <md-content class="md-padding work-tab-container">
-          <div ng-repeat="project in projects">
+          <div ng-repeat="project in vfx_projects">
             <div label="{{project}}" class="work-tab">
               <workdirective project="project"></workdirective>
             </div>
@@ -11,6 +11,13 @@
         </md-content>
       </md-tab>
       <md-tab label="Web">
+        <md-content class="md-padding work-tab-container">
+          <div ng-repeat="project in web_projects">
+            <div label="{{project}}" class="work-tab">
+              <workdirective project="project"></workdirective>
+            </div>
+          </div>
+        </md-content>
       </md-tab>
     </md-tabs>
   </md-content>

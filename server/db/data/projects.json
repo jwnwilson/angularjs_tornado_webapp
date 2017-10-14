@@ -6,7 +6,7 @@
     "project_image": "",
     "project_link": "",
     "icon": "",
-    "category": "VFX"
+    "category": "vfx"
   },
   {
     "title": "Rigging Show reel",
@@ -15,7 +15,7 @@
     "project_image": "",
     "project_link": "",
     "icon": "",
-    "category": "VFX"
+    "category": "vfx"
   },
   {
     "title": "Digital Workshop",
@@ -24,7 +24,7 @@
     "project_image": "",
     "project_link": "",
     "icon": "",
-    "category": "Web"
+    "category": "web"
   },
   {
     "title": "Olympic Channel",
@@ -33,6 +33,6 @@
     "project_image": "",
     "project_link": "",
     "icon": "",
-    "category": "Web"
+    "category": "web"
   }
 ]
