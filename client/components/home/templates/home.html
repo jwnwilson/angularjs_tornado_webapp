@@ -2,7 +2,6 @@
   <div class="hero-banner__content">
     <div ng-controller="HomeController as ctrl" ngCloak>
         <div class="intro-text-box">
-            <!--h1>{{ context.intro_title }}</h1-->
             <div class="links-container">
                 <span class="link-span"></span>
                 <a class="link-anchor" href="{{context.cv_link}}">
@@ -16,6 +15,8 @@
                 <span class="link-span"></span>
             </div>
             <div class="intro-text">
+                <img class="profile-image" src="/static/media/profile.jpg">
+                <h1>{{ context.intro_title }}</h1>
                 <p>{{ context.intro_text }}</p>
             </div>
             <div class="contact-text">

@@ -1,6 +1,12 @@
 @import '../../../apps/main/style/mixin';
 
-$youtube-width : 420px;
+$youtube-desktop-width : 500px;
+$youtube-desktop-height : 300px;
+$youtube-tablet-width : 400px;
+$youtube-tablet-height : 300px;
+$youtube-mobile-width : 320px;
+$youtube-mobile-height : 300px;
+
 
 .hero-banner-tabs {
   height: 100%;
@@ -32,14 +38,23 @@ $youtube-width : 420px;
 
       @media (max-width : $mq-tablet-portrait) {
     		flex: 0 0 100%;
+        margin-bottom: 1rem;
     	}
 
-      .youtube-container {
-        width: $youtube-width;
-      }
-
       .youtube {
-        width: $youtube-width;
+        width: $youtube-desktop-width;
+        height: $youtube-desktop-height;
+        margin: auto;
+        display: block;
+
+        @media (max-width : $mq-tablet-landscape) {
+      		width: $youtube-tablet-width;
+          height: $youtube-tablet-height;
+      	}
+        @media (max-width : $mq-mobile-landscape) {
+      		width: $youtube-mobile-width;
+          height: $youtube-mobile-height;
+      	}
       }
     }
 
