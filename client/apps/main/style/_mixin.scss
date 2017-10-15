@@ -10,6 +10,14 @@
   }
 }
 
+@mixin clearfix() {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
 @mixin round-box($text-color, $back-color) {
   color: $text-color;
 	background-color:$back-color;
@@ -52,14 +60,14 @@
     min-height: 100vh; // Covers browsers that don't understand viewport units.
 
     @media (max-width : $mq-tablet-portrait) {
-		@content;
-		background-position: -100px 0px;
-	}
+  		@content;
+  		background-position: -100px 0px;
+  	}
 
     @media (max-width : $mq-mobile-landscape) {
-		@content;
-		background-position: -200px 0px;
-	}
+  		@content;
+  		background-position: -200px 0px;
+  	}
 
     // Generic image settings between the two pseudo elements.
     &::before,

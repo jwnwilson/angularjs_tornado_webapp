@@ -6,7 +6,6 @@ require("angular-material/angular-material");
 require("angular-animate/angular-animate");
 require("angular-aria/angular-aria");
 
-
 /* Config Vars */
 var routesConfig = require("./routes");
 /* Components */

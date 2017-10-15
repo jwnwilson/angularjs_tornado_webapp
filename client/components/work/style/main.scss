@@ -3,41 +3,62 @@
 $youtube-width : 420px;
 
 .hero-banner-tabs {
-    @extend .hero-banner;
-    height: 100%;
-}
-.work-title {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  font-size: 3rem;
+  height: 100%;
 }
 
-.work-info {
-  display: flex;
+.project-container:nth-child(even) {
+  background: #4d4d4d;
+}
+
+.work-container {
   padding: 2rem;
+  color: white;
 
-  .work-media {
-    flex: 0 0 45%;
+  .work-title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 3rem;
+  }
 
-    .youtube-container {
-      width: $youtube-width;
-      margin: auto;
+  .work-info {
+    display: flex;
+
+    @media (max-width : $mq-tablet-portrait) {
+      flex-direction: row;
+      flex-wrap: wrap;
     }
 
-    .youtube {
-      width: $youtube-width;
+    .work-media {
+
+      @media (max-width : $mq-tablet-portrait) {
+    		flex: 0 0 100%;
+    	}
+
+      .youtube-container {
+        width: $youtube-width;
+      }
+
+      .youtube {
+        width: $youtube-width;
+      }
     }
-  }
 
-  .work-description {
-    flex: 1;
-    margin-right: 2rem;
-  }
-  .icon {
-    float: left;
-  }
+    .work-description {
+      @include round-box(white, black);
+      flex: 1;
+      margin-right: 2rem;
+      margin-left: 2rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+    .icon {
+      float: left;
+    }
 
-  .work-text {
-    font-size: 2rem;
+    .work-text {
+      font-size: 2rem;
+      width: 500px;
+      margin: 0px;
+    }
   }
 }

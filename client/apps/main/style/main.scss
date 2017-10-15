@@ -14,6 +14,10 @@ body {
   text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
+h2 {
+  color: #fff;
+}
+
 .starter-template {
   padding: 40px 15px;
 }
@@ -29,9 +33,9 @@ body {
 
 .app{
     &:before {
-        content: "";
-        display: table;
-        clear: both;
+      content: "";
+      display: table;
+      clear: both;
   }
 }
 
