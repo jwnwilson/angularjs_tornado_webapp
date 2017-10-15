@@ -50,6 +50,11 @@ $youtube-width : 420px;
       margin-left: 2rem;
       padding-left: 2rem;
       padding-right: 2rem;
+
+      @media (max-width : $mq-tablet-portrait) {
+        margin-right: 0rem;
+        margin-left: 0rem;
+    	}
     }
     .icon {
       float: left;
@@ -57,7 +62,6 @@ $youtube-width : 420px;
 
     .work-text {
       font-size: 2rem;
-      width: 500px;
       margin: 0px;
     }
   }
