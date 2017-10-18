@@ -9,6 +9,7 @@ require("angular-aria/angular-aria");
 /* Config Vars */
 var routesConfig = require("./routes");
 /* Components */
+require("../../../components/tab-content/scripts/main");
 require("../../../components/home/scripts/main");
 require("../../../components/work/scripts/main");
 require("../../../components/header/scripts/controller");
@@ -32,6 +33,7 @@ var app = angular.module("app", [
   "Header",
   "Home",
   "Work",
+  "TabContent",
   "ngResource",
   "ngRoute",
 ]);

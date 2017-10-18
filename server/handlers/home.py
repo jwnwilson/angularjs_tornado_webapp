@@ -1,6 +1,7 @@
 import json
 import logging
 
+import tornado
 from tornado.web import asynchronous
 
 from db.client import sanitise_data
@@ -21,4 +22,3 @@ class HomeHandler(BaseHandler):
         elif page_data:
             context = sanitise_data(page_data)
         self.render('index.html', context=json.dumps(context))
-        self.finish()
