@@ -9,9 +9,10 @@ require("angular-aria/angular-aria");
 /* Config Vars */
 var routesConfig = require("./routes");
 /* Components */
-require("../../../components/tab-content/scripts/main");
+require("../../../components/tabContent/scripts/main");
 require("../../../components/home/scripts/main");
 require("../../../components/work/scripts/main");
+require("../../../components/hobbies/scripts/main");
 require("../../../components/header/scripts/controller");
 
 /* Globals */
@@ -33,6 +34,7 @@ var app = angular.module("app", [
   "Header",
   "Home",
   "Work",
+  "Hobbies",
   "TabContent",
   "ngResource",
   "ngRoute",

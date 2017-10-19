@@ -1,1 +1,3 @@
-angular.module("Hobbies", []);
+angular.module("Hobbies", [
+  "TabContent"
+]);

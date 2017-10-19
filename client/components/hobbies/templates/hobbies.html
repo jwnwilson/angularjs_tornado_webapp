@@ -1,13 +1,11 @@
-<div ng-cloak class="hero-banner-tabs">
+<div ng-cloak ng-controller="TabContentController as ctrl" class="hero-banner-tabs">
   <md-content>
     <md-tabs md-dynamic-height md-border-bottom md-selected="selectedIndex" md-center-tabs="true">
       <md-tab label="Gymnastics">
         <md-content class="md-padding work-tab-container">
-          <div ng-controller="TabContentController as ctrl">
-            <div ng-repeat="hobby in hobbies">
-              <div label="{{hobby.title}}" class="work-tab">
-                <tabContentdirective project="hobby"></tabContentdirective>
-              </div>
+          <div ng-repeat="project in vfx_projects">
+            <div label="{{project.title}}" class="work-tab">
+              <tabcontent project="project"></tabcontent>
             </div>
           </div>
         </md-content>
