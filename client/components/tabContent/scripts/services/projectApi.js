@@ -6,12 +6,12 @@
  *
  * @type {Function}
  */
-var WorkService = function($http, _urlPrefixes) {
+var TabContentService = function($http, _urlPrefixes) {
   this.$http = $http;
   this._urlPrefixes = _urlPrefixes;
 };
 
-WorkService.prototype.getProjects = function() {
+TabContentService.prototype.getProjects = function() {
   return this.$http.get(this._urlPrefixes["API"] + "projects").then(function(projectData){
     return projectData;
   }, function(error){
@@ -19,9 +19,9 @@ WorkService.prototype.getProjects = function() {
   });
 };
 
-angular.module("Work")
-  .service("WorkService", [
+angular.module("TabContent")
+  .service("TabContentService", [
     "$http",
     "_urlPrefixes",
-    WorkService
+    TabContentService
   ]);

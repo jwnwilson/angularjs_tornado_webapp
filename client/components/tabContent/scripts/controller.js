@@ -1,11 +1,11 @@
 "use strict";
 
-function WorkController($scope, $window, WorkService) {
+function TabContentController($scope, $window, TabContentService) {
   $scope.context = $window.CONTEXT;
   $scope.vfx_projects = [];
   $scope.web_projects = [];
 
-  WorkService.getProjects().then(function(data) {
+  TabContentService.getProjects().then(function(data) {
     if( data.data ){
       for ( var index in data.data ){
         if( data.data[index].category == "vfx"){
@@ -19,10 +19,10 @@ function WorkController($scope, $window, WorkService) {
   });
 }
 
-angular.module("Work")
-  .controller("WorkController", [
+angular.module("TabContent")
+  .controller("TabContentController", [
     "$scope",
     "$window",
-    "WorkService",
-    WorkController,
+    "TabContentService",
+    TabContentController,
   ]);
