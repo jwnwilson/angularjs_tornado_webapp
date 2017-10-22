@@ -4,7 +4,7 @@
       <md-tab label="VFX">
         <md-content class="md-padding work-tab-container">
           <div ng-repeat="project in vfx_projects">
-            <div label="{{project}}" class="work-tab">
+            <div label="{{project.title}}" class="work-tab">
               <tabcontent project="project"></tabcontent>
             </div>
           </div>
@@ -13,7 +13,7 @@
       <md-tab label="Web">
         <md-content class="md-padding work-tab-container">
           <div ng-repeat="project in web_projects">
-            <div label="{{project}}" class="work-tab">
+            <div label="{{project.title}}" class="work-tab">
               <tabcontent project="project"></tabcontent>
             </div>
           </div>

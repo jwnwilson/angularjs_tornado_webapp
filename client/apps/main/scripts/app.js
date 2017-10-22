@@ -14,6 +14,7 @@ require("../../../components/home/scripts/main");
 require("../../../components/work/scripts/main");
 require("../../../components/hobbies/scripts/main");
 require("../../../components/header/scripts/controller");
+require("../../../components/blog/scripts/main");
 
 /* Globals */
 _ = require("lodash");
@@ -36,6 +37,7 @@ var app = angular.module("app", [
   "Work",
   "Hobbies",
   "TabContent",
+  "Blog",
   "ngResource",
   "ngRoute",
 ]);
