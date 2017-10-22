@@ -61,3 +61,11 @@ md-content {
     background-color: #fff;
   }
 }
+
+.project-container {
+  background-color: $background-color;
+}
+
+.project-container:nth-child(even) {
+  background-color: $background-color-alt;
+}
