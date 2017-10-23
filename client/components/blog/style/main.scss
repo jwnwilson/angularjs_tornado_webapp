@@ -1,5 +1,5 @@
-$blue: #79B9D2;
-$accent: darken($blue,20);
+$blue: #7682c1;
+$accent: lighten($blue,20);
 
 .blog {
     box-sizing:border-box;
@@ -104,11 +104,19 @@ $accent: darken($blue,20);
   form {
     width:100%;
   }
-  input, textarea {
+  textarea {
     display:block;
     width:100%;
     padding:10px;
     font-size:1.1em;
+    color:black;
+  }
+  input {
+    display:block;
+    width:100%;
+    padding:10px;
+    font-size:1.1em;
+    color:white;
   }
 
   .ng-invalid.ng-dirty {

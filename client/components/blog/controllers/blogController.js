@@ -1,10 +1,22 @@
 "use strict";
 
-function BlogController($http){
+function BlogController($http, $scope, $log){
   var blog = this;
-  blog.title = "AngularJS Blog App";
+  blog.title = "Blog";
+  $scope.total = 10;
+  $scope.currentPage = 1;
+  $scope.pageSize = 5;
 
-  blog.posts = {};
+  $scope.doCtrlPagingAct = function(text, page, pageSize, total) {
+    $log.info({
+      text: text,
+      page: page,
+      pageSize: pageSize,
+      total: total
+    });
+  };
+
+  blog.posts = [];
   $http.get("https://s3-us-west-2.amazonaws.com/s.cdpn.io/110131/posts_1.json")
     .then(function(data){
       blog.posts = data.data;
@@ -36,5 +48,7 @@ function BlogController($http){
 angular.module("Blog")
   .controller("BlogController", [
     "$http",
+    "$scope",
+    "$log",
     BlogController,
   ]);
