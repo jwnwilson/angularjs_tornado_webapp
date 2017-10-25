@@ -20,26 +20,26 @@
     <div class="content">
       <div class="container">
         <div class="row">
-          <ul class="post-grid" ng-show="blog.isSelected('blog')">
-            <li ng-repeat="post in blog.posts" class="col-s-4" ng-class="{ 'reset-s' : $index%3==0 }" ng-click="blog.selectTab($index)" >
-              <h3>{{post.title}}</h3>
-              <p>{{post.body[0] | limitTo:70}}...</p>
-              <p class="fa fa-comment push-left"> {{post.comments.length}}
-              </p>
-              <p class="fa fa-heart push-right"> {{post.likes}}
-              </p>
-            </li>
-          </ul>
-          <div paging
-              page="currentPage"
-              page-size="pageSize"
-              total="total"
-              pg-href="/#!/blog?page={page}"
-              paging-action="doCtrlPagingAct('Paging Clicked', page, pageSize, total)">
+          <div ng-show="blog.isSelected('blog')">
+            <ul class="post-grid">
+              <li ng-repeat="post in blog.filteredPosts" class="col-s-4" ng-class="{ 'reset-s' : $index%3==0 }" ng-click="blog.selectTab($index)" >
+                <h3>{{post.title}}</h3>
+                <p>{{post.body[0] | limitTo:70}}...</p>
+                <p class="fa fa-comment push-left"> {{post.comments.length}}
+                </p>
+                <p class="fa fa-heart push-right"> {{post.likes}}
+                </p>
+              </li>
+            </ul>
+            <div paging
+                page="currentPage"
+                page-size="pageSize"
+                total="total"
+                paging-action="doCtrlPagingAct('Paging Clicked', page, pageSize, total)">
+            </div>
           </div>
           <div class="post" ng-repeat="post in blog.posts" ng-show="blog.isSelected($index)">
             <div>
-
               <h2>{{post.title}}</h2>
               <img src="{{post.image}}" ng-show="post.image"/>
               <cite>by {{post.author}} on {{post.createdOn | date}}</cite>

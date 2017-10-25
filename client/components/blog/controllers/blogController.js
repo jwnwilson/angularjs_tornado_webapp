@@ -3,9 +3,13 @@
 function BlogController($http, $scope, $log){
   var blog = this;
   blog.title = "Blog";
-  $scope.total = 10;
+  blog.posts = [];
+  blog.tab = "blog";
+  blog.post = {};
+  blog.filteredPosts = [];
+  $scope.total = 0;
   $scope.currentPage = 1;
-  $scope.pageSize = 5;
+  $scope.pageSize = 3;
 
   $scope.doCtrlPagingAct = function(text, page, pageSize, total) {
     $log.info({
@@ -14,15 +18,19 @@ function BlogController($http, $scope, $log){
       pageSize: pageSize,
       total: total
     });
+    var pageStart = (page-1) * pageSize;
+    var pageEnd = pageStart + pageSize;
+    blog.filteredPosts = blog.posts.slice(pageStart, pageEnd);
+    console.log(blog.filteredPosts);
   };
 
-  blog.posts = [];
   $http.get("https://s3-us-west-2.amazonaws.com/s.cdpn.io/110131/posts_1.json")
     .then(function(data){
+      console.log("Getting data");
       blog.posts = data.data;
+      blog.filteredPosts = blog.posts.slice(0, $scope.pageSize);
+      $scope.total = data.data.length;
     });
-
-  blog.tab = "blog";
 
   blog.selectTab = function(setTab){
     blog.tab = setTab;
@@ -33,14 +41,13 @@ function BlogController($http, $scope, $log){
     return blog.tab === checkTab;
   };
 
-  blog.post = {};
   blog.addPost = function(){
     blog.post.createdOn = Date.now();
     blog.post.comments = [];
     blog.post.likes = 0;
     blog.posts.unshift(this.post);
     blog.tab = 0;
-    blog.post ={};
+    blog.post = {};
   };
 
 }
