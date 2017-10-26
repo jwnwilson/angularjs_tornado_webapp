@@ -21,7 +21,7 @@
       <div class="container">
         <div class="row">
           <div ng-show="blog.isSelected('blog')">
-            <ul class="post-grid">
+            <ul><!--class="post-grid"-->
               <li ng-repeat="post in blog.filteredPosts" class="col-s-4" ng-class="{ 'reset-s' : $index%3==0 }" ng-click="blog.selectTab($index)" >
                 <h3>{{post.title}}</h3>
                 <p>{{post.body[0] | limitTo:70}}...</p>
@@ -31,11 +31,11 @@
                 </p>
               </li>
             </ul>
-            <div paging
+            <div class="text-center" paging
                 page="currentPage"
                 page-size="pageSize"
                 total="total"
-                paging-action="doCtrlPagingAct('Paging Clicked', page, pageSize, total)">
+                paging-action="blog.paging('Paging Clicked', page, pageSize, total)">
             </div>
           </div>
           <div class="post" ng-repeat="post in blog.posts" ng-show="blog.isSelected($index)">
