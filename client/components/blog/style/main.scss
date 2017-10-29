@@ -47,12 +47,11 @@ $accent: lighten($blue,20);
     li {
       padding:20px;
       cursor:pointer;
-      transition: background linear 0.5s;
       border-bottom:1px solid $accent;
 
       &:hover {
-      background:$accent;
-      color:white;
+        background:$accent;
+        color:white;
 
         h3 {
           color: white;
