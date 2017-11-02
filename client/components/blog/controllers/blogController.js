@@ -4,7 +4,6 @@ function BlogController($http, $scope, $log){
   var blog = this;
 
   // Variables
-
   blog.title = "Blog";
   blog.posts = [];
   blog.tab = "blog";
@@ -15,7 +14,6 @@ function BlogController($http, $scope, $log){
   $scope.pageSize = 3;
 
   // Functions
-
   blog.paging = paging;
   blog.getBlogPosts = getBlogPosts;
   blog.selectTab = selectTab;
@@ -23,7 +21,6 @@ function BlogController($http, $scope, $log){
   blog.addPost = addPost;
 
   // Initialisation
-
   blog.getBlogPosts();
 
   function paging(text, page, pageSize, total) {

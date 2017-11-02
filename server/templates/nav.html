@@ -8,6 +8,9 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#">Noel Wilson</a>
+      {% if current_user %}
+        <p class="navbar-brand" style="float:right;">logged in</p>
+      {% end %}
     </div>
     <div id="navbar" class="collapse navbar-collapse" ng-controller="HeaderController">
       <ul class="nav navbar-nav">

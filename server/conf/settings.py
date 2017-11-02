@@ -46,9 +46,10 @@ else:
 settings = {}
 settings['debug'] = DEPLOYMENT != DeploymentType.PRODUCTION or options.debug
 settings['static_path'] = STATIC_ROOT
-settings['cookie_secret'] = "your-cookie-secret"
+settings['cookie_secret'] = '0140f0c5b27d439c88a0da22626f6333'
 settings['xsrf_cookies'] = True
 settings['template_loader'] = tornado.template.Loader(TEMPLATE_ROOT)
+settings['login_url'] = '/login'
 
 SYSLOG_TAG = "noelwilson"
 SYSLOG_FACILITY = logging.handlers.SysLogHandler.LOG_LOCAL2
