@@ -20,6 +20,7 @@ $youtube-mobile-height : 300px;
     margin-top: 0;
     margin-bottom: 1rem;
     font-size: 3rem;
+    text-align: center;
   }
 
   .work-info {
@@ -55,7 +56,7 @@ $youtube-mobile-height : 300px;
     }
 
     .work-description {
-      @include round-box(white, black);
+      @include round-box(white, rgba(0, 0, 0, 0.5));
       flex: 1;
       margin-right: 2rem;
       margin-left: 2rem;
