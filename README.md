@@ -13,3 +13,9 @@ To start a local dev server for the front end and backend run:
 $  make build
 
 $  make run
+
+## Create user
+
+$  make shell
+
+$  python scripts/create_user.py username password

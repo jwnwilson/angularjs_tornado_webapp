@@ -1,11 +1,22 @@
 {% extends base.html %}
 
+{% block head %}
+<style type="text/css">
+  .login {
+    position: relative;
+    top: 5em;
+    width: 20em;
+    margin: auto;
+  }
+</style>
+{% end %}
+
 {% block nav %}
   {% include 'nav.html' %}
 {% end %}
 
 {% block main %}
-  <form action="/login" method="POST">
+  <form class="login" action="/login" method="POST">
 
       <p>Username: <input style="color: black;" type="text" name="username" /><p>
        <p>Password: <input style="color: black;" type="password" name="password" /><p>

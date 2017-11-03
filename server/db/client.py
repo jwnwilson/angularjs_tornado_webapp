@@ -1,7 +1,13 @@
-import os
 from copy import deepcopy
+import logging
+import os
 
 import motor
+import tornado
+
+from utils import hash_password
+
+logger = logging.getLogger(__name__)
 
 
 def db_client():
@@ -28,3 +34,23 @@ def sanitise_data(data):
     elif isinstance(data, dict):
         ret_data = sanitise_dict(data)
     return ret_data
+
+
+@tornado.gen.coroutine
+def create_user(username, password):
+    db = db_client()
+    hashed_pass, salt = hash_password(password)
+    future = db.users.update_one(
+        {'username': username},
+        {'$set':
+            {
+                'username': username,
+                'password_hash': hashed_pass,
+                'salt': salt
+            }
+        },
+        upsert=True
+    )
+    user = yield future
+    logger.info('Created / Updated user: %s', username)
+    return user
