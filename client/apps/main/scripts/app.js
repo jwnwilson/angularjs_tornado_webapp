@@ -43,6 +43,7 @@ var app = angular.module("app", [
 ]);
 app.value("_mqWidth", _mqWidth);
 app.value("_urlPrefixes", _urlPrefixes);
+app.value("context", CONTEXT || {}); // eslint-disable-line
 
 /* App Config */
 angular.module("app").config(routesConfig);

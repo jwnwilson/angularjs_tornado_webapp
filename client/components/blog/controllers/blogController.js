@@ -1,6 +1,6 @@
 "use strict";
 
-function BlogController($http, $scope, $log){
+function BlogController($http, $scope, $log, context){
   var blog = this;
 
   // Variables
@@ -12,6 +12,7 @@ function BlogController($http, $scope, $log){
   $scope.total = 0;
   $scope.currentPage = 1;
   $scope.pageSize = 3;
+  $scope.context = context;
 
   // Functions
   blog.paging = paging;
@@ -70,5 +71,6 @@ angular.module("Blog")
     "$http",
     "$scope",
     "$log",
+    "context",
     BlogController,
   ]);

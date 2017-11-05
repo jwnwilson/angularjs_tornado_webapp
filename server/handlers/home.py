@@ -11,14 +11,16 @@ logger = logging.getLogger(__name__)
 
 
 class HomeHandler(BaseHandler):
-    @asynchronous
+    @tornado.gen.coroutine
     def get(self):
-        future = self.db.pages.find_one({'page': 'home'}, callback=self._got_page_text)
-
-    def _got_page_text(self, page_data, error):
+        user = self.get_current_user()
+        future = self.db.pages.find_one({'page': 'home'})
+        page_data = yield future
         context = {}
-        if error:
+        if not page_data:
             raise tornado.web.HTTPError(500, error)
         elif page_data:
             context = sanitise_data(page_data)
+        if user:
+            context['user'] = str(user, 'utf-8')
         self.render('index.html', context=json.dumps(context))
