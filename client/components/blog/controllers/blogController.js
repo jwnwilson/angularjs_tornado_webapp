@@ -9,6 +9,7 @@ function BlogController($http, $scope, $log, context){
   blog.tab = "blog";
   blog.post = {};
   blog.filteredPosts = [];
+  blog.url = "/api/v1/blogs";
   $scope.total = 0;
   $scope.currentPage = 1;
   $scope.pageSize = 3;
@@ -38,7 +39,8 @@ function BlogController($http, $scope, $log, context){
   }
 
   function getBlogPosts() {
-    $http.get("https://s3-us-west-2.amazonaws.com/s.cdpn.io/110131/posts_1.json")
+    //$http.get("https://s3-us-west-2.amazonaws.com/s.cdpn.io/110131/posts_1.json")
+    $http.get(blog.url)
       .then(function(data){
         console.log("Getting data");
         blog.posts = data.data;
