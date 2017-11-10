@@ -73,6 +73,7 @@ function BlogController($http, $scope, $log, context){
     $http.post(blog.url, JSON.stringify(blog.post), config)
       .then(function(data){
         console.log("Posted blog", data);
+        blog.id = data.id
         blog.tab = 0;
         blog.post = {};
       }.bind(this),
