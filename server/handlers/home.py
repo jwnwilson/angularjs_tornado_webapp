@@ -16,6 +16,7 @@ class HomeHandler(BaseHandler):
         user = self.get_current_user()
         future = self.db.pages.find_one({'page': 'home'})
         page_data = yield future
+        page_data['xsrf'] = self.xsrf_token.decode('utf-8')
         context = {}
         if not page_data:
             raise tornado.web.HTTPError(500, error)

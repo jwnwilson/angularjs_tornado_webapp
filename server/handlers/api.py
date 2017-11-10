@@ -34,3 +34,16 @@ class BlogApi(BaseHandler):
         blogs = yield future
         blogs = sanitise_data(blogs)
         self.write(json.dumps(blogs))
+
+    @gen.coroutine
+    @tornado.web.authenticated
+    def post(self):
+        blog_data = tornado.escape.json_decode(self.request.body)
+
+        required_attr = []
+        for attr in required_attr:
+            assert attr in blog_data and blog_data[attr], (
+                'Missing attr {}'.format(attr))
+
+        future = self.db.blog.insert_one(blog_data)
+        result = yield future

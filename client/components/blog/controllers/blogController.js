@@ -63,8 +63,22 @@ function BlogController($http, $scope, $log, context){
     blog.post.comments = [];
     blog.post.likes = 0;
     blog.posts.unshift(this.post);
-    blog.tab = 0;
-    blog.post = {};
+
+    var config = {
+      headers : {
+        "Content-Type": "application/x-www-form-urlencoded;charset=utf-8;",
+        "X-XSRFToken": context["xsrf"]
+      }
+    };
+    $http.post(blog.url, JSON.stringify(blog.post), config)
+      .then(function(data){
+        console.log("Posted blog", data);
+        blog.tab = 0;
+        blog.post = {};
+      }.bind(this),
+      function(error){
+        console.log("Error: ", error);
+      });
   }
 }
 
