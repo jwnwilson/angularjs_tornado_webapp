@@ -21,6 +21,8 @@ function BlogController($http, $scope, $log, context){
   blog.selectTab = selectTab;
   blog.isSelected = isSelected;
   blog.addPost = addPost;
+  blog.updatePost = updatePost;
+  blog.deletePost = deletePost;
 
   // Initialisation
   blog.getBlogPosts();
@@ -39,7 +41,6 @@ function BlogController($http, $scope, $log, context){
   }
 
   function getBlogPosts() {
-    //$http.get("https://s3-us-west-2.amazonaws.com/s.cdpn.io/110131/posts_1.json")
     $http.get(blog.url)
       .then(function(data){
         console.log("Getting data");
@@ -51,6 +52,7 @@ function BlogController($http, $scope, $log, context){
 
   function selectTab(setTab) {
     blog.tab = setTab;
+    blog.post = blog.posts[setTab];
     console.log(blog.tab);
   }
 
@@ -59,10 +61,29 @@ function BlogController($http, $scope, $log, context){
   }
 
   function addPost() {
-    blog.post.createdOn = Date.now();
-    blog.post.comments = [];
-    blog.post.likes = 0;
-    blog.posts.unshift(this.post);
+    var config = {
+      headers : {
+        "Content-Type": "application/x-www-form-urlencoded;charset=utf-8;",
+        "X-XSRFToken": context["xsrf"]
+      }
+    };
+    $http.post(blog.url, JSON.stringify(blog.post), config)
+      .then(function(data){
+        console.log("Create blog post", data);
+        blog.id = data.id;
+        blog.tab = 0;
+        blog.post = {};
+      }.bind(this),
+      function(error){
+        console.log("Error: ", error);
+      });
+  }
+
+  function updatePost() {
+    if(!blog.post.id){
+      console.log("Existing Id not found skipping update.");
+      return;
+    }
 
     var config = {
       headers : {
@@ -72,9 +93,30 @@ function BlogController($http, $scope, $log, context){
     };
     $http.post(blog.url, JSON.stringify(blog.post), config)
       .then(function(data){
-        console.log("Posted blog", data);
-        blog.id = data.id
-        blog.tab = 0;
+        console.log("Updated blog post", data);
+      }.bind(this),
+      function(error){
+        console.log("Error: ", error);
+      });
+  }
+
+  function deletePost() {
+    if(!blog.post.id){
+      console.log("Existing Id not found skipping delete.");
+      return;
+    }
+
+    var config = {
+      headers : {
+        "Content-Type": "application/x-www-form-urlencoded;charset=utf-8;",
+        "X-XSRFToken": context["xsrf"]
+      }
+    };
+    $http.delete(blog.url + "?id=" + blog.post.id, config)
+      .then(function(data){
+        console.log("Deleted blog post", data);
+        var index = blog.posts.indexOf(blog.post);
+        blog.posts.splice(index, 1);
         blog.post = {};
       }.bind(this),
       function(error){
