@@ -58,10 +58,10 @@
                   <input type="text" ng-model="blog.post.image" placeholder="http://placekitten.com/g/2000/600" />
                   <label for="">by:</label>
                   <input type="text" ng-model="blog.post.author" placeholder="Author Name" required/>
-                  <input type="submit" value="Update" />
+                  <md-button class="submit-button" type="submit"> Update </md-button>
               </form>
               <form ng-if="context.user" name="postDeleteForm" ng-submit="blog.deletePost()" novalidate>
-                  <input type="submit" value="Delete" />
+                  <md-button class="submit-button" type="submit"> Delete </md-button>
               </form>
 
               <div class="comments" ng-controller="CommentController as commentCtrl">
@@ -79,7 +79,8 @@
                   <label for="">by:</label>
                     <input type="text" ng-model="commentCtrl.comment.author" required placeholder="Name"/>
 
-                    <input type="submit" value="Submit" />
+                    <!--input type="submit" value="Submit" /-->
+                    <md-button class="submit-button" type="submit"> Submit </md-button>
                   </form>
               </div>
           </div>
@@ -96,7 +97,7 @@
               <input type="text" ng-model="blog.post.image" placeholder="http://placekitten.com/g/2000/600" />
               <label for="">by:</label>
               <input type="text" ng-model="blog.post.author" placeholder="Author Name" required/>
-              <input type="submit" value="Submit" />
+              <md-button class="submit-button" type="submit">Submit</md-button>
           </form>
         </div>
       </div>

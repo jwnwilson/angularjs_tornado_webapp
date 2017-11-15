@@ -86,13 +86,17 @@ angular-aria@^1.6.6:
   version "1.6.6"
   resolved "https://registry.yarnpkg.com/angular-aria/-/angular-aria-1.6.6.tgz#58dd748e09564bc8409f739bde57b35fbee5b6a5"
 
-angular-material@^1.1.5:
+angular-material@^1.1.0:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/angular-material/-/angular-material-1.1.5.tgz#a5450cd8205e15a7691edc389476094cf86d592b"
 
 angular-messages@^1.6.6:
   version "1.6.6"
   resolved "https://registry.yarnpkg.com/angular-messages/-/angular-messages-1.6.6.tgz#a9bb3fc5f971d745cd3a3bdbaabc6f1f4deb13f3"
+
+angular-paging@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/angular-paging/-/angular-paging-2.2.2.tgz#702f574d6d140690035eac64395fe311f7987fbb"
 
 angular-resource@^1.6.5:
   version "1.6.6"

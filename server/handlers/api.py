@@ -54,8 +54,9 @@ class BlogApi(BaseHandler):
     @tornado.web.authenticated
     def post(self):
         blog_data = tornado.escape.json_decode(self.request.body)
-        blog_data.pop('$$hashKey')
-        blog_id = blog_data.pop('id')
+        if '$$hashKey' in blog_data:
+            blog_data.pop('$$hashKey')
+        blog_id = blog_data.pop('id') if blog_data.get('id') else None
         update = False
 
         required_attr = []
@@ -78,4 +79,8 @@ class BlogApi(BaseHandler):
             future = self.db.blog.insert_one(blog_data)
 
         result = yield future
+
+        if '_id' in blog_data:
+            blog_id = blog_data.pop('_id')
+            blog_data['id'] = str(blog_id)
         self.write(json.dumps(blog_data))

@@ -9,12 +9,12 @@ require("angular-aria/angular-aria");
 /* Config Vars */
 var routesConfig = require("./routes");
 /* Components */
-require("../../../components/tabContent/scripts/main");
+require("../../../components/header/scripts/controller");
 require("../../../components/home/scripts/main");
 require("../../../components/work/scripts/main");
-require("../../../components/hobbies/scripts/main");
-require("../../../components/header/scripts/controller");
 require("../../../components/blog/scripts/main");
+require("../../../components/tabContent/scripts/main");
+require("../../../components/hobbies/scripts/main");
 
 /* Globals */
 _ = require("lodash");
@@ -32,15 +32,17 @@ var _mqWidth = {
 
 /* App Dependencies */
 var app = angular.module("app", [
+  "ngMaterial",
+  "ngResource",
+  "ngRoute",
   "Header",
   "Home",
   "Work",
   "Hobbies",
   "TabContent",
-  "Blog",
-  "ngResource",
-  "ngRoute",
+  "Blog"
 ]);
+
 app.value("_mqWidth", _mqWidth);
 app.value("_urlPrefixes", _urlPrefixes);
 app.value("context", CONTEXT || {}); // eslint-disable-line

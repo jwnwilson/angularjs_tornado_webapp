@@ -1,6 +1,6 @@
 "use strict";
 
-function BlogController($http, $scope, $log, context){
+function BlogController($http, $scope, $log, $route, context){
   var blog = this;
 
   // Variables
@@ -52,7 +52,12 @@ function BlogController($http, $scope, $log, context){
 
   function selectTab(setTab) {
     blog.tab = setTab;
-    blog.post = blog.posts[setTab];
+    if(setTab == "new") {
+      blog.post = {};
+    }
+    else {
+      blog.post = blog.posts[setTab];
+    }
     console.log(blog.tab);
   }
 
@@ -73,6 +78,7 @@ function BlogController($http, $scope, $log, context){
         blog.id = data.id;
         blog.tab = 0;
         blog.post = {};
+        $route.reload();
       }.bind(this),
       function(error){
         console.log("Error: ", error);
@@ -94,6 +100,7 @@ function BlogController($http, $scope, $log, context){
     $http.post(blog.url, JSON.stringify(blog.post), config)
       .then(function(data){
         console.log("Updated blog post", data);
+        $route.reload();
       }.bind(this),
       function(error){
         console.log("Error: ", error);
@@ -118,6 +125,7 @@ function BlogController($http, $scope, $log, context){
         var index = blog.posts.indexOf(blog.post);
         blog.posts.splice(index, 1);
         blog.post = {};
+        $route.reload();
       }.bind(this),
       function(error){
         console.log("Error: ", error);
@@ -130,6 +138,7 @@ angular.module("Blog")
     "$http",
     "$scope",
     "$log",
+    "$route",
     "context",
     BlogController,
   ]);

@@ -1,10 +1,11 @@
 "use strict";
 
-var tabContent = angular.module("TabContent", [
+angular.module("TabContent", [
   "ngMaterial"
 ]);
 
-tabContent.config(function($sceDelegateProvider) {
+
+angular.module("TabContent").config(function($sceDelegateProvider) {
   $sceDelegateProvider.resourceUrlWhitelist([
     // Allow same origin resource loads.
     "self",
@@ -12,6 +13,7 @@ tabContent.config(function($sceDelegateProvider) {
     "https://www.youtube.com/embed/**"
   ]);
 });
+
 
 require("./controller");
 require("./directives/content");

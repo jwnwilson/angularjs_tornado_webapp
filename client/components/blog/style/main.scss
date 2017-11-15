@@ -121,6 +121,7 @@ $accent: lighten($blue,20);
     color:black;
   }
 
+
   .ng-invalid.ng-dirty {
     border-color:red;
   }
@@ -131,5 +132,9 @@ $accent: lighten($blue,20);
 
   img {
     max-width:100%;
+  }
+
+  .submit-button {
+    background-color: grey;
   }
 }
