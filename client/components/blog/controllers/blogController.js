@@ -7,7 +7,6 @@ function BlogController($http, $scope, $log, $route, context){
   blog.title = "Blog";
   blog.posts = [];
   blog.tab = "blog";
-  blog.post = {};
   blog.filteredPosts = [];
   blog.url = "/api/v1/blogs";
   $scope.total = 0;
@@ -23,10 +22,15 @@ function BlogController($http, $scope, $log, $route, context){
   blog.addPost = addPost;
   blog.updatePost = updatePost;
   blog.deletePost = deletePost;
+  blog.newPost = newPost;
 
   // Initialisation
+  blog.newPost();
   blog.getBlogPosts();
 
+  /**
+   * Slice list of blogs to paginate the blogs
+   */
   function paging(text, page, pageSize, total) {
     $log.info({
       text: text,
@@ -40,6 +44,9 @@ function BlogController($http, $scope, $log, $route, context){
     console.log(blog.filteredPosts);
   }
 
+  /**
+   * Make get request to API to get all blog posts
+   */
   function getBlogPosts() {
     $http.get(blog.url)
       .then(function(data){
@@ -50,10 +57,13 @@ function BlogController($http, $scope, $log, $route, context){
       });
   }
 
+  /**
+   * Change tab in blog by setting tab variable
+   */
   function selectTab(setTab) {
     blog.tab = setTab;
     if(setTab == "new") {
-      blog.post = {};
+      blog.newPost();
     }
     else {
       blog.post = blog.posts[setTab];
@@ -65,6 +75,10 @@ function BlogController($http, $scope, $log, $route, context){
     return blog.tab === checkTab;
   }
 
+  /**
+   * Send the current post data to the API to create a new post in the DB
+   * Force refresh of page after POST request ot API
+   */
   function addPost() {
     var config = {
       headers : {
@@ -77,7 +91,7 @@ function BlogController($http, $scope, $log, $route, context){
         console.log("Create blog post", data);
         blog.id = data.id;
         blog.tab = 0;
-        blog.post = {};
+        blog.newPost();
         $route.reload();
       }.bind(this),
       function(error){
@@ -85,6 +99,9 @@ function BlogController($http, $scope, $log, $route, context){
       });
   }
 
+  /**
+   * If current post has an id make API call to update post
+   */
   function updatePost() {
     if(!blog.post.id){
       console.log("Existing Id not found skipping update.");
@@ -107,6 +124,10 @@ function BlogController($http, $scope, $log, $route, context){
       });
   }
 
+  /**
+   * If current post has an id make API call to delete post then remove
+   * it from list of posts.
+   */
   function deletePost() {
     if(!blog.post.id){
       console.log("Existing Id not found skipping delete.");
@@ -124,14 +145,30 @@ function BlogController($http, $scope, $log, $route, context){
         console.log("Deleted blog post", data);
         var index = blog.posts.indexOf(blog.post);
         blog.posts.splice(index, 1);
-        blog.post = {};
+        blog.newPost();
         $route.reload();
       }.bind(this),
       function(error){
         console.log("Error: ", error);
       });
   }
+
+  /**
+   * Clear the current post data and create a new empty message
+   */
+  function newPost() {
+    var newPost = {};
+    newPost.title = "";
+    newPost.text = "";
+    newPost.created = new Date();
+    newPost.updated = new Date();
+    newPost.image = "";
+    newPost.author = "";
+    blog.post = newPost;
+  }
 }
+
+
 
 angular.module("Blog")
   .controller("BlogController", [

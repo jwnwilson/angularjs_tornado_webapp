@@ -88,15 +88,17 @@
         <div class="post" ng-show="blog.isSelected('new')">
           <h2 ng-if="!blog.post.id">Add New Post</h2>
           <h2 ng-if="blog.post.id">Edit Post</h2>
-          <form name="postAddForm" ng-submit="blog.addPost()" novalidate>
+          <form name="postAddForm" ng-submit="blog.addPost()" validate>
               <h4>Title</h4>
-              <input type="text" ng-model="blog.post.title"/>
+              <input type="text" ng-model="blog.post.title" required/>
               <h4>Body</h4>
-              <textarea ng-model="blog.post.body" ng-list="/\n/" rows="10"></textarea>
+              <textarea ng-model="blog.post.body" ng-list="/\n/" rows="10" required></textarea>
               <label for="">Featured Image URL</label>
-              <input type="text" ng-model="blog.post.image" placeholder="http://placekitten.com/g/2000/600" />
+              <input type="text" name="image" ng-model="blog.post.image" placeholder="http://placekitten.com/g/2000/600" />
               <label for="">by:</label>
-              <input type="text" ng-model="blog.post.author" placeholder="Author Name" required/>
+              <input type="text" name="author" ng-model="blog.post.author" placeholder="Author Name" required/>
+              <input type="hidden" name="created" ng-value="blog.post.created"/>
+              <input type="hidden" name="updated" ng-value="blog.post.updated"/>
               <md-button class="submit-button" type="submit">Submit</md-button>
           </form>
         </div>

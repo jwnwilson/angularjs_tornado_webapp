@@ -2,10 +2,11 @@ import json
 import logging
 
 from bson.objectid import ObjectId
-import tornado.web
-from tornado import gen
 from db.client import sanitise_data
 from handlers.base import BaseHandler
+import pymongo
+import tornado.web
+from tornado import gen
 
 logger = logging.getLogger(__name__)
 
@@ -31,7 +32,7 @@ class HobbiesApi(BaseHandler):
 class BlogApi(BaseHandler):
     @gen.coroutine
     def get(self):
-        future = self.db.blog.find().to_list(length=None)
+        future = self.db.blog.find().sort('created', pymongo.DESCENDING).to_list(length=None)
         blogs = yield future
         blogs = sanitise_data(blogs)
         self.write(json.dumps(blogs))
