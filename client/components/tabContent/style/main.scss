@@ -38,7 +38,11 @@ $youtube-mobile-height : 300px;
         margin-bottom: 1rem;
     	}
 
-      .youtube {
+      .media-container {
+        
+      }
+
+      .media {
         width: $youtube-desktop-width;
         height: $youtube-desktop-height;
         margin: auto;

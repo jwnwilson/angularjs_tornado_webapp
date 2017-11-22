@@ -19,6 +19,14 @@ TabContentService.prototype.getProjects = function() {
   });
 };
 
+TabContentService.prototype.getHobbies = function() {
+  return this.$http.get(this._urlPrefixes["API"] + "hobbies").then(function(projectData){
+    return projectData;
+  }, function(error){
+    console.log("Error retrieving projects: " + error);
+  });
+};
+
 angular.module("TabContent")
   .service("TabContentService", [
     "$http",

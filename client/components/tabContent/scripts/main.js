@@ -10,7 +10,7 @@ angular.module("TabContent").config(function($sceDelegateProvider) {
     // Allow same origin resource loads.
     "self",
     // Allow loading from our assets domain. **.
-    "https://www.youtube.com/embed/**"
+    "https://www.youtube.com/**"
   ]);
 });
 

@@ -4,7 +4,7 @@ echo "Clearing nw_db"
 mongo nw_db --host db --eval "db.dropDatabase();"
 echo "Cleared nw_db"
 
-colls=( projects pages  )
+colls=( projects pages hobbies blog )
 
 for c in ${colls[@]}
 do

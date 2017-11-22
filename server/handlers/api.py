@@ -32,7 +32,8 @@ class HobbiesApi(BaseHandler):
 class BlogApi(BaseHandler):
     @gen.coroutine
     def get(self):
-        future = self.db.blog.find().sort('created', pymongo.DESCENDING).to_list(length=None)
+        future = self.db.blog.find().sort(
+            'created', pymongo.DESCENDING).to_list(length=None)
         blogs = yield future
         blogs = sanitise_data(blogs)
         self.write(json.dumps(blogs))
