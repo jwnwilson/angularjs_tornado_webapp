@@ -30,6 +30,15 @@ class HobbiesApi(BaseHandler):
 
 
 class BlogApi(BaseHandler):
+    @classmathod
+    def clean_post(cls, data):
+        if '$$hashKey' in data:
+            data.pop('$$hashKey')
+
+        for attr in cls.required_attr:
+            assert attr in blog_data and blog_data[attr], (
+                'Missing attr {}'.format(attr))
+
     @gen.coroutine
     def get(self):
         future = self.db.blog.find().sort(
@@ -55,16 +64,10 @@ class BlogApi(BaseHandler):
     @gen.coroutine
     @tornado.web.authenticated
     def post(self):
-        blog_data = tornado.escape.json_decode(self.request.body)
-        if '$$hashKey' in blog_data:
-            blog_data.pop('$$hashKey')
+        blog_data = clean_post(
+            tornado.escape.json_decode(self.request.body))
         blog_id = blog_data.pop('id') if blog_data.get('id') else None
         update = False
-
-        required_attr = []
-        for attr in required_attr:
-            assert attr in blog_data and blog_data[attr], (
-                'Missing attr {}'.format(attr))
 
         if blog_id:
             future = self.db.blog.find_one(
@@ -79,10 +82,7 @@ class BlogApi(BaseHandler):
                 {'$set': blog_data})
         else:
             future = self.db.blog.insert_one(blog_data)
-
         result = yield future
 
-        if '_id' in blog_data:
-            blog_id = blog_data.pop('_id')
-            blog_data['id'] = str(blog_id)
+        blog_data = sanitise_data(blog_data)
         self.write(json.dumps(blog_data))

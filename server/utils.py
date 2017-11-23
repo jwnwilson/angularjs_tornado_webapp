@@ -1,4 +1,5 @@
 import hashlib
+import markdown
 import uuid
 
 
@@ -9,3 +10,7 @@ def hash_password(password, salt=None):
         password.encode('utf-8') +
         salt.encode('utf-8')).hexdigest()
     return hashed_password, salt
+
+
+def process_markdown(text):
+    return markdown.markdown(your_text_string)

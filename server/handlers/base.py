@@ -12,9 +12,11 @@ class BaseHandler(tornado.web.RequestHandler):
     """A class to collect common handler methods - all other handlers should
     subclass this one.
     """
+    required_attr =[]
+    
     def get_current_user(self):
         return self.get_secure_cookie("user")
-        
+
     @property
     def db(self):
         if not hasattr(self, '_db'):
