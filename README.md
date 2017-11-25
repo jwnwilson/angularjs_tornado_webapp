@@ -26,3 +26,8 @@ $  python scripts/create_user.py username password
 - favicon
 - robots.txt
 - SEO
+- circleCI
+- Simple test BE suite
+- Simple test FE suite
+- Refactor BE code
+- Refactor FE code
