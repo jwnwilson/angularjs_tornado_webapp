@@ -13,8 +13,9 @@
     <div class="work-description intro-text-box">
       <img class="icon" ng-src="{{ project.icon }}">
       <div class="clear">
-        <a href="{{ project.project_link }}">Project link</a>
-        <p class="work-text">{{ project.text }}</p>
+        <a ng-if="project.project_link" href="{{ project.project_link }}">Project link</a>
+        <p ng-if="project.text && !project.markdown"class="work-text">{{ project.text }}</p>
+        <div ng-if="project.markdown" ng-bind-html="project.markdown | trust"></div>
       </div>
     </div>
   </div>

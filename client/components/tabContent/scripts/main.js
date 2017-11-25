@@ -14,6 +14,13 @@ angular.module("TabContent").config(function($sceDelegateProvider) {
   ]);
 });
 
+angular.module("TabContent").filter(
+  "trust", ["$sce", function($sce) {
+    return function(htmlCode){
+      return $sce.trustAsHtml(htmlCode);
+    };
+  }]);
+
 
 require("./controller");
 require("./directives/content");

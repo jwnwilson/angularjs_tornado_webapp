@@ -13,4 +13,4 @@ def hash_password(password, salt=None):
 
 
 def process_markdown(text):
-    return markdown.markdown(your_text_string)
+    return markdown.markdown(text)

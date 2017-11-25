@@ -2,3 +2,5 @@ FROM python
 MAINTAINER Noel Wilson <jwnwilson@gmail.com>
 
 COPY ./ops/bashrc /root/.bashrc
+RUN ./venv/bin/pip3 install -r ./requirements/dev.txt
+RUN ./venv/bin/pip3 install -r ./requirements/common.txt

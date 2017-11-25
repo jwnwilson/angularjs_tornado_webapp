@@ -2,11 +2,12 @@ import json
 import logging
 
 from bson.objectid import ObjectId
-from db.client import sanitise_data
-from handlers.base import BaseHandler
 import pymongo
 import tornado.web
 from tornado import gen
+
+from db.client import sanitise_data
+from handlers.base import BaseHandler
 
 logger = logging.getLogger(__name__)
 
@@ -17,6 +18,8 @@ class ProjectApi(BaseHandler):
         future = self.db.projects.find().to_list(length=None)
         projects = yield future
         projects = sanitise_data(projects)
+        for p in projects:
+            self.create_markdown(p, 'markdown', 'text')
         self.write(json.dumps(projects))
 
 
@@ -26,11 +29,13 @@ class HobbiesApi(BaseHandler):
         future = self.db.hobbies.find().to_list(length=None)
         hobbies = yield future
         hobbies = sanitise_data(hobbies)
+        for h in hobbies:
+            self.create_markdown(h, 'markdown', 'text')
         self.write(json.dumps(hobbies))
 
 
 class BlogApi(BaseHandler):
-    @classmathod
+    @classmethod
     def clean_post(cls, data):
         if '$$hashKey' in data:
             data.pop('$$hashKey')
@@ -45,6 +50,8 @@ class BlogApi(BaseHandler):
             'created', pymongo.DESCENDING).to_list(length=None)
         blogs = yield future
         blogs = sanitise_data(blogs)
+        for b in blogs:
+            self.create_markdown(b, 'markdown', 'body')
         self.write(json.dumps(blogs))
 
     @gen.coroutine

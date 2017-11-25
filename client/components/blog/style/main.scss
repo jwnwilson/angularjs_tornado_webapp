@@ -9,6 +9,14 @@ $accent: lighten($blue,20);
     box-sizing:border-box;
     font-size:18px;
 
+    p {
+      font-size: 100%;
+    }
+
+    a {
+      font-size: 100%;
+    }
+
   .topbar {
     background:$blue;
     color:white;

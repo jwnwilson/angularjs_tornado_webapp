@@ -7,6 +7,14 @@ $portrait-width : 200px;
 }
 
 .hero-banner {
+    p {
+        font-size: 100%;
+    }
+
+    a {
+        font-size: 100%;
+    }
+    
     @include hero-image('/static/components/home/assets/img/laptop_coffee.jpg');
 
     &__content {

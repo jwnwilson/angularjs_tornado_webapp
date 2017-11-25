@@ -4,6 +4,7 @@ import logging
 import tornado.web
 
 from db.client import db_client
+from utils import process_markdown
 
 logger = logging.getLogger(__name__)
 
@@ -13,7 +14,7 @@ class BaseHandler(tornado.web.RequestHandler):
     subclass this one.
     """
     required_attr =[]
-    
+
     def get_current_user(self):
         return self.get_secure_cookie("user")
 
@@ -22,6 +23,15 @@ class BaseHandler(tornado.web.RequestHandler):
         if not hasattr(self, '_db'):
             self._db = db_client()
         return self._db
+
+    def create_markdown(self, data, attr_name, source_attr='markdown'):
+        if isinstance(data[source_attr], str):
+            data[attr_name] = process_markdown(data[source_attr])
+        elif isinstance(data[source_attr], list):
+            data[attr_name] = []
+            for item in data[source_attr]:
+                data[attr_name].append(
+                    process_markdown(item))
 
     def load_json(self):
         """Load JSON from the request body and store them in
