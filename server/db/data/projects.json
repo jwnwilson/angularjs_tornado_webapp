@@ -19,7 +19,7 @@
   },
   {
     "title": "Digital Workshop",
-    "text": "Learning platform funded by google to provide online tuition for various online subjects.",
+    "text": "Summary: Learning platform funded by google to provide online tuition for various online subjects.\n\nMy Role: Leading team to add new and improve existing functionality of site.\n\nTechnology: AngularJs, Python2, Webapp2, Google Appengine",
     "youtube_url": "",
     "project_image": "/static/media/digital_garage.png",
     "project_link": "https://learndigital.withgoogle.com/digitalgarage/",
@@ -28,7 +28,7 @@
   },
   {
     "title": "Olympic Channel",
-    "text": "Olympic channel is an on demand streaming service for olympic content.",
+    "text": "Olympic channel is an on demand streaming service for olympic content.\n\nMy Role: Leading a BE team to build the project and integrate with core API.\n\nTechnology: Python2 / Python3, Django, AWS, NGINX",
     "youtube_url": "",
     "project_image": "/static/media/olympic_channel.png",
     "project_link": "https://www.olympicchannel.com/en/",
