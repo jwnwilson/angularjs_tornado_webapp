@@ -19,3 +19,10 @@ $  make run
 $  make shell
 
 $  python scripts/create_user.py username password
+
+# TODO:
+
+- Deployment
+- favicon
+- robots.txt
+- SEO
