@@ -10,42 +10,51 @@ $accent: lighten($blue,20);
     font-size:18px;
 
     p {
-      font-size: 100%;
+        font-size: 100%;
     }
 
     a {
-      font-size: 100%;
+        font-size: 100%;
     }
 
-  .topbar {
-    background:$blue;
-    color:white;
-    width:100%;
-    z-index:9999;
-    padding:5px 20px;
-
-    h1 {
-      cursor:pointer;
+    .blog-content {
+        @include clearfix;
     }
 
-    nav {
-      margin-top:25px;
+    .blog-image {
+      height: 20em;
+      float: left; margin: 4px 10px 0px 0px;
+    }
 
-      ul {
-        padding:0;
-        margin:0;
+    .topbar {
+      background:$blue;
+      color:white;
+      width:100%;
+      z-index:9999;
+      padding:5px 20px;
 
-        li {
-          display:inline-block;
-          padding:10px;
+      h1 {
+        cursor:pointer;
+      }
 
-          a {
-            color:white;
-            text-decoration:none;
+      nav {
+        margin-top:25px;
+
+        ul {
+          padding:0;
+          margin:0;
+
+          li {
+            display:inline-block;
+            padding:10px;
+
+            a {
+              color:white;
+              text-decoration:none;
+            }
           }
         }
       }
-    }
   }
   ul.post-grid {
     margin:0;

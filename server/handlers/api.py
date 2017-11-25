@@ -71,8 +71,8 @@ class BlogApi(BaseHandler):
     @gen.coroutine
     @tornado.web.authenticated
     def post(self):
-        blog_data = clean_post(
-            tornado.escape.json_decode(self.request.body))
+        import pdb;pdb.set_trace()
+        blog_data = tornado.escape.json_decode(self.request.body)
         blog_id = blog_data.pop('id') if blog_data.get('id') else None
         update = False
 

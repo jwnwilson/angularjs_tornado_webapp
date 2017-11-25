@@ -60,6 +60,12 @@ $youtube-mobile-height : 300px;
     }
 
     .work-description {
+      a {
+        font-size: 200%;
+        margin-bottom: 1em;
+        display: block;
+      }
+
       @include round-box(white, rgba(0, 0, 0, 0.5));
       flex: 1;
       margin-right: 2rem;

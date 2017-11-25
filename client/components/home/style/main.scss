@@ -14,7 +14,7 @@ $portrait-width : 200px;
     a {
         font-size: 100%;
     }
-    
+
     @include hero-image('/static/components/home/assets/img/laptop_coffee.jpg');
 
     &__content {
@@ -87,6 +87,7 @@ $portrait-width : 200px;
         }
 
         .intro-text {
+            text-align: left;
             font-size: 20px;
             margin-top: 1rem;
             margin-right: 5rem;

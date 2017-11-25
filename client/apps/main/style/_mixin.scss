@@ -45,10 +45,6 @@
     width:$percent;
 }
 
-@mixin clearfix() {
-
-}
-
 @mixin hero-image($img) {
     position: relative;
     background-image: url($img);

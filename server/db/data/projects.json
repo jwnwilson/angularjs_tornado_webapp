@@ -1,7 +1,7 @@
 [
   {
     "title": "Automated Rigger",
-    "text": "Python based rigging tools scripted in Python for Maya.",
+    "text": "Summary: Python based rigging tools scripted in Python for Maya.\n\nDescription: Python based tools that provide a UI to automated rigging in Maya VFX software by providing tools for an artist to quickly build a skeleton to bind to a model.\n\nTechnology: Python2, Maya",
     "youtube_url": "https://www.youtube.com/embed/8eh4N69zte4",
     "project_image": "",
     "project_link": "",
@@ -9,8 +9,8 @@
     "category": "vfx"
   },
   {
-    "title": "Rigging Show reel",
-    "text": "Rigging skills from various projects using Python for Maya.",
+    "title": "Python / Maya Show reel",
+    "text": "Summary: Various python tools\n\nDescription:\n\n- My automated rigging tools used in advertising to speed up binding controlls to models.\n\n- The custom muscle simulation system written from scratch in python implementing volume perserving algorithms, with added UI and options to mirror bind them to a skeleton.\n\n- The flocking algorithm was written in python and takes various attributes to allow a user to alter the flocks behaviour.",
     "youtube_url": "https://www.youtube.com/embed/r8ZGKYdUpEA?list=UU6Wm5YpKdNwvKSsY2dGeCXQ&hl=en_GB",
     "project_image": "",
     "project_link": "",
@@ -28,7 +28,7 @@
   },
   {
     "title": "Olympic Channel",
-    "text": "Olympic channel is an on demand streaming service for olympic content.\n\nMy Role: Leading a BE team to build the project and integrate with core API.\n\nTechnology: Python2 / Python3, Django, AWS, NGINX",
+    "text": "Summary: Olympic channel is an on demand streaming service for olympic content.\n\nMy Role: Leading a BE team to build the project and integrate with core API.\n\nTechnology: Python2 / Python3, Django, AWS, NGINX",
     "youtube_url": "",
     "project_image": "/static/media/olympic_channel.png",
     "project_link": "https://www.olympicchannel.com/en/",
