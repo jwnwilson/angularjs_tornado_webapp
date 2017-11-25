@@ -10,6 +10,15 @@
           </div>
         </md-content>
       </md-tab>
+      <md-tab label="Projects">
+        <md-content class="work-tab-container">
+          <div class="project-container" ng-repeat="project in personal_projects">
+            <div label="{{project.title}}" class="work-tab">
+              <tabcontent project="project"></tabcontent>
+            </div>
+          </div>
+        </md-content>
+      </md-tab>
       <md-tab label="VFX">
         <md-content class="work-tab-container">
           <div class="project-container" ng-repeat="project in vfx_projects">

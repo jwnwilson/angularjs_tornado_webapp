@@ -4,6 +4,7 @@ function TabContentController($scope, $window, TabContentService) {
   $scope.context = $window.CONTEXT;
   $scope.vfx_projects = [];
   $scope.web_projects = [];
+  $scope.personal_projects = [];
   $scope.artworks = [];
   $scope.gymnastics = [];
 
@@ -15,6 +16,9 @@ function TabContentController($scope, $window, TabContentService) {
         }
         if( data.data[index].category == "web"){
           $scope.web_projects.push(data.data[index]);
+        }
+        if( data.data[index].category == "personal"){
+          $scope.personal_projects.push(data.data[index]);
         }
       }
     }

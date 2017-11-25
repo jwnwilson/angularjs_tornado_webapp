@@ -41,9 +41,18 @@
   },
   {
     "title": "3D Modelling showreel 2010",
-    "text": "My 3D modelling showreel from 2010.",
+    "text": "Summary: My 3D modelling showreel from 2010. All models where modelled and rigged in Maya, sculpted in zbrush then rendered in Maya.\n\n- Trex\n\n- Knight character\n\n - Monk character\n\n- Dog fight animation",
     "youtube_url": "https://www.youtube.com/embed/Xb2rBCUjuXk",
     "project_image": "",
+    "icon": "",
+    "category": "artwork"
+  },
+  {
+    "title": "Still images 2D and 3D Gallery",
+    "text": "Summary: An old collection of 2D and 3D artwork I have created from university, hosted on Deviant art until I can add this here.\n\n Created using a variety of digital painting, traditional drawing and 3D modelling.",
+    "youtube_url": "",
+    "project_image": "/static/media/gallery.png",
+    "project_link": "https://bowly69.deviantart.com/gallery/",
     "icon": "",
     "category": "artwork"
   }

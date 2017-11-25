@@ -9,6 +9,7 @@ function BlogController($http, $scope, $log, $route, context){
   blog.tab = "blog";
   blog.filteredPosts = [];
   blog.url = "/api/v1/blogs";
+  blog.comment_url = "/api/v1/comments";
   $scope.total = 0;
   $scope.currentPage = 1;
   $scope.pageSize = 3;
@@ -102,11 +103,12 @@ function BlogController($http, $scope, $log, $route, context){
   /**
    * If current post has an id make API call to update post
    */
-  function updatePost() {
+  function updatePost(postUrl) {
     if(!blog.post.id){
       console.log("Existing Id not found skipping update.");
       return;
     }
+    postUrl = postUrl || blog.url;
 
     var config = {
       headers : {
@@ -114,7 +116,7 @@ function BlogController($http, $scope, $log, $route, context){
         "X-XSRFToken": context["xsrf"]
       }
     };
-    $http.post(blog.url, JSON.stringify(blog.post), config)
+    $http.post(postUrl, JSON.stringify(blog.post), config)
       .then(function(data){
         console.log("Updated blog post", data);
         $route.reload();
@@ -166,6 +168,10 @@ function BlogController($http, $scope, $log, $route, context){
     newPost.author = "";
     blog.post = newPost;
   }
+  
+  $scope.$on("updateComment", function() {
+    blog.updatePost(blog.comment_url);
+  });
 }
 
 

@@ -35,15 +35,6 @@ class HobbiesApi(BaseHandler):
 
 
 class BlogApi(BaseHandler):
-    @classmethod
-    def clean_post(cls, data):
-        if '$$hashKey' in data:
-            data.pop('$$hashKey')
-
-        for attr in cls.required_attr:
-            assert attr in blog_data and blog_data[attr], (
-                'Missing attr {}'.format(attr))
-
     @gen.coroutine
     def get(self):
         future = self.db.blog.find().sort(
@@ -71,8 +62,8 @@ class BlogApi(BaseHandler):
     @gen.coroutine
     @tornado.web.authenticated
     def post(self):
-        import pdb;pdb.set_trace()
         blog_data = tornado.escape.json_decode(self.request.body)
+        self.clean_post(blog_data)
         blog_id = blog_data.pop('id') if blog_data.get('id') else None
         update = False
 
@@ -89,6 +80,35 @@ class BlogApi(BaseHandler):
                 {'$set': blog_data})
         else:
             future = self.db.blog.insert_one(blog_data)
+        result = yield future
+
+        blog_data = sanitise_data(blog_data)
+        self.write(json.dumps(blog_data))
+
+
+class CommentApi(BaseHandler):
+    @gen.coroutine
+    def post(self):
+        import pdb;pdb.set_trace()
+        blog_data = tornado.escape.json_decode(self.request.body)
+        blog_id = blog_data.get('id')
+        post = None
+
+        if blog_id:
+            future = self.db.blog.find_one(
+                {'_id': ObjectId(blog_id)})
+            post = yield future
+
+        if post:
+            comments = blog_data['comments']
+            for comment in comments:
+                self.clean_post(comment)
+            future = self.db.blog.update_one(
+                {'_id': ObjectId(blog_id)},
+                {'$set': {'comments': comments}})
+        else:
+            return self.error(404)
+
         result = yield future
 
         blog_data = sanitise_data(blog_data)

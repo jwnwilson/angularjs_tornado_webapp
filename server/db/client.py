@@ -23,8 +23,9 @@ def sanitise_data(data):
     """
     def sanitise_dict(data_dict):
         clean_dict = deepcopy(data_dict)
-        del clean_dict['_id']
-        clean_dict['id'] = str(data_dict['_id'])
+        if '_id' in clean_dict:
+            del clean_dict['_id']
+            clean_dict['id'] = str(data_dict['_id'])
         return clean_dict
 
     ret_data = None

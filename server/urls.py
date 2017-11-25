@@ -2,6 +2,7 @@ import tornado
 
 from conf.settings import API_prefix
 from handlers.api import BlogApi
+from handlers.api import CommentApi
 from handlers.api import HobbiesApi
 from handlers.api import ProjectApi
 from handlers.auth import LoginHandler
@@ -19,6 +20,7 @@ url_patterns = [
 # API Handlers
 url_patterns += [
     (API_prefix + 'blogs', BlogApi),
+    (API_prefix + 'comments', CommentApi),
     (API_prefix + 'projects', ProjectApi),
     (API_prefix + 'hobbies', HobbiesApi),
 ]

@@ -24,6 +24,15 @@ class BaseHandler(tornado.web.RequestHandler):
             self._db = db_client()
         return self._db
 
+    @classmethod
+    def clean_post(cls, data):
+        if '$$hashKey' in data:
+            data.pop('$$hashKey')
+
+        for attr in cls.required_attr:
+            assert attr in blog_data and blog_data[attr], (
+                'Missing attr {}'.format(attr))
+
     def create_markdown(self, data, attr_name, source_attr='markdown'):
         if isinstance(data[source_attr], str):
             data[attr_name] = process_markdown(data[source_attr])

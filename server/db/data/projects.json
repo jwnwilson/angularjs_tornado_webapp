@@ -19,7 +19,7 @@
   },
   {
     "title": "Digital Workshop",
-    "text": "Summary: Learning platform funded by google to provide online tuition for various online subjects.\n\nMy Role: Leading team to add new and improve existing functionality of site.\n\nTechnology: AngularJs, Python2, Webapp2, Google Appengine",
+    "text": "Summary: Learning platform funded by google to provide online tuition for various online subjects.\n\nMy Role: Leading both frontend and backend devs to add new and improve existing functionality to an existing product.\n\nTechnology: AngularJs, Python2, Webapp2, Google Appengine, Circle CI",
     "youtube_url": "",
     "project_image": "/static/media/digital_garage.png",
     "project_link": "https://learndigital.withgoogle.com/digitalgarage/",
@@ -28,11 +28,65 @@
   },
   {
     "title": "Olympic Channel",
-    "text": "Summary: Olympic channel is an on demand streaming service for olympic content.\n\nMy Role: Leading a BE team to build the project and integrate with core API.\n\nTechnology: Python2 / Python3, Django, AWS, NGINX",
+    "text": "Summary: Olympic channel is an on demand streaming service for olympic content.\n\nMy Role: Leading a backend team in architecting a solution, building the project and integrate with core API.\n\nTechnology: Python2 / Python3, Django, AWS, NGINX, Jenkins, Postgres",
     "youtube_url": "",
     "project_image": "/static/media/olympic_channel.png",
     "project_link": "https://www.olympicchannel.com/en/",
     "icon": "",
     "category": "web"
+  },
+  {
+    "title": "This Website",
+    "text": "Summary: A simple single page app built using AngularJs, Tornado and Mongo, built to experiement with different web technologies.\n\nTechnology: AngularJs, Python3, Tornado, MongoDB",
+    "youtube_url": "",
+    "project_image": "/static/media/noel_wilson_2017.png",
+    "project_link": "https://github.com/jwnwilson/noelwilson_2017",
+    "icon": "",
+    "category": "web"
+  },
+  {
+    "title": "Kill The Marvel Universe",
+    "text": "Summary: Data science learning exercise, scrapes data from the Marvel API and will build a network of releationships between superheros, used to solve the question of which are the most influential characters in the Marvel Universe.\n\nTechnology: Python3, matplotlib, networkx",
+    "youtube_url": "",
+    "project_image": "/static/media/networkx.png",
+    "project_link": "https://github.com/jwnwilson/kill_the_marvel_universe",
+    "icon": "",
+    "category": "personal"
+  },
+  {
+    "title": "Weather App",
+    "text": "Summary: Project to learn React, pulls data from http://openweathermap.org/api then displays it as a series of charts.\n\nTechnology: Python3, Django, React",
+    "youtube_url": "",
+    "project_image": "/static/media/weather_app.png",
+    "project_link": "https://weather-app-nw.herokuapp.com/#",
+    "icon": "",
+    "category": "personal"
+  },
+  {
+    "title": "Real Time Chat",
+    "text": "Summary: A simpel chatroom built with nodeJs websockets and requireJs.\n\nTechnology: nodeJs, Express, requireJs",
+    "youtube_url": "",
+    "project_image": "/static/media/real_time_chat.png",
+    "project_link": "https://real-time-chat-nw.herokuapp.com/#",
+    "icon": "",
+    "category": "personal"
+  },
+  {
+    "title": "Ray Tracer",
+    "text": "Summary: A Ray Tracer built in C++ to learn C++ and graphics programming.\n\nTechnology: C++",
+    "youtube_url": "",
+    "project_image": "/static/media/ray_tracer.jpg",
+    "project_link": "https://github.com/jwnwilson/nw_render",
+    "icon": "",
+    "category": "personal"
+  },
+  {
+    "title": "Twitter Bot",
+    "text": "Summary: Twitter bot built to learn how to poll data from twitter for use in other projects that could use twitter data. This project will compare the popularity of two hash tags over time.\n\nTechnology: Python, Django, Twitter API, Postgres",
+    "youtube_url": "",
+    "project_image": "/static/media/twitter_battle.png",
+    "project_link": "https://github.com/jwnwilson/twitter_bot",
+    "icon": "",
+    "category": "personal"
   }
 ]
