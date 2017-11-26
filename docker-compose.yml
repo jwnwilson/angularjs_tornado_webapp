@@ -29,6 +29,8 @@ services:
       context: .
       dockerfile: ./ops/docker_server
     user: root
+    env_file:
+      - web.env
     working_dir: /src/server
     command: ./venv/bin/python3 app.py
     container_name: nw_server

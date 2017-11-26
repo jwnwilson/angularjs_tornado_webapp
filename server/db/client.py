@@ -1,5 +1,6 @@
 from copy import deepcopy
 import logging
+import os
 
 import motor
 import tornado
@@ -13,7 +14,8 @@ def db_client():
     """
     Create a client connecting to our mongo db
     """
-    return motor.motor_tornado.MotorClient("mongodb://db:27017").nw_db
+    db_uri = os.getenv('DB_URI')
+    return motor.motor_tornado.MotorClient(db_uri).nw_db
 
 
 def sanitise_data(data):
