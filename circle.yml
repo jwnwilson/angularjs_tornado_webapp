@@ -8,21 +8,17 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: v2-be-{{ checksum "server/requirements/common.txt" }}
+          key: v3-be-{{ checksum "server/requirements/common.txt" }}
           paths:
-            - /src/server/env
-      - restore_cache:
-          key: v1-db-{{ .Revision }}
-          paths:
-            - /data/db
+            - /src/server/venv
       - run:
           command: './ops/reset_db.sh;'
       - run:
           command: 'cd server; ./scripts/setup.sh'
       - save_cache:
-          key: v2-be-{{ checksum "server/requirements/common.txt" }}
+          key: v3-be-{{ checksum "server/requirements/common.txt" }}
           paths:
-            - /src/server/env
+            - /src/server/venv
       - run:
           command: 'cd server; ./scripts/pylint.sh; ./scripts/test.sh'
       - store_artifacts:
