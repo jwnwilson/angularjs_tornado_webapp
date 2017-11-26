@@ -54,6 +54,8 @@ services:
     build:
       context: .
       dockerfile: ./ops/docker_mongo_setup
+    env_file:
+      - web.env
     links:
       - db
 
