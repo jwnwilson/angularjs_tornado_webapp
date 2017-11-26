@@ -22,12 +22,10 @@ $  python scripts/create_user.py username password
 
 # TODO:
 
+- circleCI
 - Deployment
 - favicon
 - robots.txt
 - SEO
-- circleCI
-- Simple test BE suite
-- Simple test FE suite
 - Refactor BE code
 - Refactor FE code
