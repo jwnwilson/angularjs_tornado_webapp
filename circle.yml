@@ -1,12 +1,13 @@
 version: 2
 jobs:
   db-data:
+    working_directory: /src
     docker:
       - image: mongo:3.4.0
     steps:
       - checkout
       - run:
-          command: './ops/reset_db.sh'
+          command: 'mongod &; ./ops/reset_db.sh;'
       - save_cache:
           key: v1-db-{{ .Revision }}
           paths:
