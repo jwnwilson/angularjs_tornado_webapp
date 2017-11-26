@@ -4,6 +4,7 @@ jobs:
     working_directory: /src
     docker:
       - image: python
+      - image: mongo:3.4.0
     steps:
       - checkout
       - restore_cache:
