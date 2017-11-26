@@ -1,7 +1,8 @@
 version: 2
 jobs:
   db-data:
-    - image: mongo:3.4.0
+    docker:
+      - image: mongo:3.4.0
     steps:
       - checkout
       - run:
