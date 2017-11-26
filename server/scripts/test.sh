@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-COVERAGE_CMD="--cov=. --cov-report html:.cov --cov-report term --cov-config .coveragerc"
+COVERAGE_CMD="--cov=. --cov-report html:.cov --cov-report term --cov-config conf/.coveragerc"
 
 source ./venv/bin/activate
 
