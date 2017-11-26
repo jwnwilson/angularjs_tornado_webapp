@@ -20,8 +20,9 @@ DB_SETUP = db-setup
 build:
 	$(COMPOSE) build
 
-pyenv:
+setup:
 	$(COMPOSE) run ${PYENV}
+	$(COMPOSE) run ${CLIENT} bash -c "npm install"
 
 run:
 	$(COMPOSE) up
