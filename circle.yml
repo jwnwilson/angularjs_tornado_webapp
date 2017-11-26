@@ -3,6 +3,7 @@ jobs:
   db-data:
     docker:
       - image: mongo:3.4.0
+      - image: mongo:3.4.0
     steps:
       - checkout
       - run:
