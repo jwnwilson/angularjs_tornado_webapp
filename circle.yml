@@ -1,5 +1,15 @@
 version: 2
 jobs:
+  db-data:
+    - image: mongo:3.4.0
+    steps:
+      - checkout
+      - run:
+          command: './ops/reset_db.sh'
+      - save_cache:
+          key: v1-db-{{ .Revision }}
+          paths:
+            - /data/db
   build-be:
     working_directory: /src
     docker:
@@ -8,13 +18,17 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: v1-be-{{ checksum "server/requirements/common.txt" }}
+          key: v2-be-{{ checksum "server/requirements/common.txt" }}
           paths:
             - /src/server/env
+      - restore_cache:
+          key: v1-db-{{ .Revision }}
+          paths:
+            - /data/db
       - run:
           command: 'cd server; ./scripts/setup.sh'
       - save_cache:
-          key: v1-be-{{ checksum "server/requirements/common.txt" }}
+          key: v2-be-{{ checksum "server/requirements/common.txt" }}
           paths:
             - /src/server/env
       - run:
@@ -53,5 +67,8 @@ workflows:
   version: 2
   build:
     jobs:
-      - build-be
+      - db-data
       - build-fe
+      - build-be:
+          requires:
+            - db-data
