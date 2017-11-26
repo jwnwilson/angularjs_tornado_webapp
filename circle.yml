@@ -1,25 +1,25 @@
 version: 2
 jobs:
   build-be:
-    working_directory: /src/server
+    working_directory: /src
     docker:
       - image: python
     steps:
       - checkout
       - restore_cache:
-          key: v1-be-{{ checksum "requirements/common.txt" }}
+          key: v1-be-{{ checksum "server/requirements/common.txt" }}
           paths:
-            - /env
+            - /src/server/env
       - run:
-          command: './scripts/setup.sh'
+          command: 'cd server; ./scripts/setup.sh'
       - save_cache:
-          key: v1-be-{{ checksum "requirements/common.txt" }}
+          key: v1-be-{{ checksum "server/requirements/common.txt" }}
           paths:
-            - /env
+            - /src/server/env
       - run:
-          command: './scripts/pylint.sh; ./scripts/test.sh'
+          command: 'cd server; ./scripts/pylint.sh; ./scripts/test.sh'
       - store_artifacts:
-          path: .cov
+          path: ./server/.cov
           prefix: be-tests
   build-fe:
     working_directory: /src
