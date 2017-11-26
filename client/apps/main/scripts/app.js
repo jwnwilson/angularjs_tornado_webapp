@@ -28,6 +28,7 @@ var _mqWidth = {
   tabletLandscape: 1024,
   desktop: 1382
 };
+var CONTEXT;
 /* Components */
 
 /* App Dependencies */

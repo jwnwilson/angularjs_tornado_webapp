@@ -3,7 +3,7 @@ import pytest
 
 os.environ["TEST"] = 'True'
 
-from app import TornadoApp
+from app import TornadoApp  # pylint: disable=wrong-import-position
 
 application = TornadoApp()
 

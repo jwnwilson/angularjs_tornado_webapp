@@ -2,7 +2,7 @@
 
 COVERAGE_CMD="--cov=. --cov-report html:.cov --cov-report term --cov-config .coveragerc"
 
-source ./scripts/setup.sh
+source ./venv/bin/activate
 
 if [[ $parallel == 'true' ]]
 then
@@ -12,5 +12,3 @@ else
     # Run tests in one process
     pytest $COVERAGE_CMD
 fi
-
-

@@ -9,7 +9,7 @@ from tornado.options import define, options
 API_prefix = r'/api/v1/'
 
 # Make filepaths relative to settings.
-path = lambda root, *a: os.path.join(root, *a)
+path = lambda root, *a: os.path.join(root, *a) # pylint: disable=unnecessary-lambda
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(ROOT)
 

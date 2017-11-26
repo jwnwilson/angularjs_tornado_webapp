@@ -2,7 +2,6 @@ import json
 import logging
 
 import tornado
-from tornado.web import asynchronous
 
 from db.client import sanitise_data
 from handlers.base import BaseHandler
@@ -19,7 +18,7 @@ class HomeHandler(BaseHandler):
         page_data['xsrf'] = self.xsrf_token.decode('utf-8')
         context = {}
         if not page_data:
-            raise tornado.web.HTTPError(500, error)
+            raise tornado.web.HTTPError(500, 'No page data available.')
         elif page_data:
             context = sanitise_data(page_data)
         if user:

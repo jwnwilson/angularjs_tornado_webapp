@@ -13,11 +13,15 @@ help:
 COMPOSE = docker-compose
 SERVER = server
 CLIENT = client
+PYENV = pyenv
 DB = db
 DB_SETUP = db-setup
 
 build:
 	$(COMPOSE) build
+
+pyenv:
+	$(COMPOSE) run ${PYENV}
 
 run:
 	$(COMPOSE) up
@@ -35,9 +39,11 @@ data:
 	$(COMPOSE) build --no-cache $(DB_SETUP)
 	$(COMPOSE) run $(DB_SETUP)
 
+test: test-be test-fe
+
 test-be:
-	$(COMPOSE) run $(SERVER) ./scripts/pylint.sh
-	$(COMPOSE) run $(SERVER) ./scripts/test.sh
+	$(COMPOSE) run $(SERVER) bash -c "./scripts/pylint.sh"
+	$(COMPOSE) run $(SERVER) bash -c "./scripts/test.sh"
 
 test-fe:
 	$(COMPOSE) run $(CLIENT) npm test

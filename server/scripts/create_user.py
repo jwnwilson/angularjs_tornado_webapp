@@ -6,7 +6,7 @@ import tornado
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-from db.client import create_user
+from db.client import create_user  # pylint: disable=wrong-import-position
 
 parser = argparse.ArgumentParser()
 parser.add_argument(

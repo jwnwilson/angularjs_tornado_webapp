@@ -1,6 +1,5 @@
 from copy import deepcopy
 import logging
-import os
 
 import motor
 import tornado

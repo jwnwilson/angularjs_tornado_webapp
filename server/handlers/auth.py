@@ -2,8 +2,8 @@ import logging
 
 import tornado
 
-from .base import BaseHandler
 from utils import hash_password
+from .base import BaseHandler
 
 logger = logging.getLogger(__name__)
 

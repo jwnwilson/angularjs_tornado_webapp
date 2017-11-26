@@ -13,7 +13,7 @@ class BaseHandler(tornado.web.RequestHandler):
     """A class to collect common handler methods - all other handlers should
     subclass this one.
     """
-    required_attr =[]
+    required_attr = []
 
     def get_current_user(self):
         return self.get_secure_cookie("user")
@@ -30,7 +30,7 @@ class BaseHandler(tornado.web.RequestHandler):
             data.pop('$$hashKey')
 
         for attr in cls.required_attr:
-            assert attr in blog_data and blog_data[attr], (
+            assert attr in data and data[attr], (
                 'Missing attr {}'.format(attr))
 
     def create_markdown(self, data, attr_name, source_attr='markdown'):
@@ -70,8 +70,8 @@ class BaseHandler(tornado.web.RequestHandler):
                 logger.debug(msg)
                 raise tornado.web.HTTPError(400, msg)
             logger.debug("Returning default argument %s, as we couldn't find "
-                    "'%s' in %s" % (default, name, self.request.arguments))
+                    "'%s' in %s", default, name, self.request.arguments)
             return default
         arg = self.request.arguments[name]
-        logger.debug("Found '%s': %s in JSON arguments" % (name, arg))
+        logger.debug("Found '%s': %s in JSON arguments", name, arg)
         return arg

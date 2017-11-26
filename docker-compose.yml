@@ -11,6 +11,19 @@ services:
       - .:/src
       - node_modules:/src/client/node_modules
 
+  pyenv:
+    build:
+      context: .
+      dockerfile: ./ops/docker_server
+    user: root
+    working_dir: /src/server
+    command: ./scripts/setup.sh
+    container_name: nw_pyenv
+    tty: true
+    volumes:
+      - .:/src
+      - venv:/src/server/venv
+
   server:
     build:
       context: .

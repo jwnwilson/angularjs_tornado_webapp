@@ -1,6 +1,7 @@
 import hashlib
-import markdown
 import uuid
+
+import markdown
 
 
 def hash_password(password, salt=None):

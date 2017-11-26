@@ -89,7 +89,6 @@ class BlogApi(BaseHandler):
 class CommentApi(BaseHandler):
     @gen.coroutine
     def post(self):
-        import pdb;pdb.set_trace()
         blog_data = tornado.escape.json_decode(self.request.body)
         blog_id = blog_data.get('id')
         post = None

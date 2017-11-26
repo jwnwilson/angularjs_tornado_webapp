@@ -7,13 +7,13 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: v1-be-{{ .Revision }}
+          key: v1-be-{{ checksum "server/requirements/common.txt" }}
           paths:
             - /src/server/env
       - run:
           command: 'cd server; ./scripts/setup.sh'
       - save_cache:
-          key: v1-be-{{ .Revision }}
+          key: v1-be-{{ checksum "server/requirements/common.txt" }}
           paths:
             - /src/server/env
       - run:
