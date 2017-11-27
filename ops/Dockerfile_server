@@ -1,8 +1,5 @@
-FROM python
+FROM jwnwilson/python3-mongo
 MAINTAINER Noel Wilson <jwnwilson@gmail.com>
-
-RUN apt-get update -y
-RUN apt-get install mongodb -y
 
 COPY ./ops/bashrc /root/.bashrc
 ADD . /src
