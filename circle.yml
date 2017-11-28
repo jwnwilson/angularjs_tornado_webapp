@@ -3,7 +3,7 @@ jobs:
   build-be:
     working_directory: /src
     docker:
-      - image: jwnwilson/python3-mongo
+      - image: jwnwilson/noelwilson_2017
       - image: mongo:3.4.0
     steps:
       - checkout
