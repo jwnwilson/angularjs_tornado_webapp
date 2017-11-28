@@ -26,7 +26,6 @@ $  python scripts/create_user.py username password
 
 # TODO:
 
-- circleCI
 - Deployment
 - favicon
 - robots.txt
