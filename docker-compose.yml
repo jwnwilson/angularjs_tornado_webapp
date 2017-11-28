@@ -53,7 +53,7 @@ services:
   db-setup:
     build:
       context: .
-      dockerfile: ./ops/Dockerfile_setup
+      dockerfile: ./ops/Dockerfile_mongo_setup
     env_file:
       - web.env
     links:
