@@ -36,6 +36,9 @@ run-be:
 run-fe:
 	$(COMPOSE) run $(CLIENT)
 
+run-fe-build:
+		$(COMPOSE) run $(CLIENT) bash -c "./node_modules/.bin/webpack"
+
 data:
 	$(COMPOSE) build --no-cache $(DB_SETUP)
 	$(COMPOSE) run $(DB_SETUP)
@@ -51,3 +54,6 @@ test-fe:
 
 shell:
 	$(COMPOSE) run $(SERVER) bash
+
+deploy:
+	./ops/deploy.sh

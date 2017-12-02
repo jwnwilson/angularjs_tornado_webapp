@@ -1,0 +1,30 @@
+version: '2'
+services:
+  server:
+    image: gcr.io/jwnwilson-eu/web:v1
+    user: root
+    env_file:
+      - web.env
+    working_dir: /src/server
+    command: ./venv/bin/python3 app.py
+    container_name: nw-server
+    tty: true
+    ports:
+      - 0.0.0.0:8888:8888
+    links:
+      - db
+  db:
+    image: mongo:3.4.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - db_data:/data/db
+  db-setup:
+    image: gcr.io/jwnwilson-eu/db:v1
+    command: bash -c "/reset_db.sh"
+    env_file:
+      - web.env
+    links:
+      - db
+volumes:
+  db_data:

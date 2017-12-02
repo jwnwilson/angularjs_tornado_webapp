@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose-deploy.yaml
+    kompose.version: 1.5.0 ()
+  creationTimestamp: null
+  labels:
+    io.kompose.service: server
+  name: server
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: server
+    spec:
+      containers:
+      - args:
+        - ./venv/bin/python3
+        - app.py
+        image: gcr.io/jwnwilson-eu/web:v1
+        name: nw-server
+        ports:
+        - containerPort: 8888
+          hostIP: 0.0.0.0
+        resources: {}
+        tty: true
+        workingDir: /src/server
+      restartPolicy: Always
+status: {}
