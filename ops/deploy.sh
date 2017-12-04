@@ -18,4 +18,14 @@ gcloud docker -- push gcr.io/${PROJECT_ID}/db:v1
 
 gcloud container clusters get-credentials web-cluster
 
-kompose up -f ./ops/kubernetes/docker-compose-deploy.yaml
+#kompose convert -f ./ops/kubernetes/docker-compose-deploy.yaml
+
+kubectl create -f ./ops/kubernetes/db-data-persistentvolumeclaim.yaml
+
+kubectl create -f ./ops/kubernetes/db-deployment.yaml
+kubectl create -f ./ops/kubernetes/db-service.yaml
+
+kubectl create -f ./ops/kubernetes/db-job.yaml
+
+kubectl create -f ./ops/kubernetes/server-deployment.yaml
+kubectl create -f ./ops/kubernetes/server-service.yaml

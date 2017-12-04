@@ -9,8 +9,9 @@ metadata:
     io.kompose.service: db
   name: db
 spec:
+  clusterIP: None
   ports:
-  - name: "27017"
+  - name: headless
     port: 27017
     targetPort: 27017
   selector:

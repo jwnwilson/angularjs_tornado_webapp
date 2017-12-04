@@ -15,16 +15,7 @@ services:
       - db
   db:
     image: mongo:3.4.0
-    ports:
-      - "27017:27017"
     volumes:
       - db_data:/data/db
-  db-setup:
-    image: gcr.io/jwnwilson-eu/db:v1
-    command: bash -c "/reset_db.sh"
-    env_file:
-      - web.env
-    links:
-      - db
 volumes:
   db_data:

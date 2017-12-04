@@ -10,8 +10,8 @@ metadata:
   name: server
 spec:
   ports:
-  - name: "8888"
-    port: 8888
+  - name: "web"
+    port: 80
     targetPort: 8888
   selector:
     io.kompose.service: server
