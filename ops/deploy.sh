@@ -1,8 +1,7 @@
 #! /bin/bash
 PROJECT_ID=jwnwilson-eu
 
-#gcloud container clusters create web-cluster --num-nodes=2
-
+# Build static files for front end
 make run-fe-build
 
 gcloud auth application-default login
@@ -16,16 +15,12 @@ docker build -f ./ops/Dockerfile_mongo_setup -t gcr.io/${PROJECT_ID}/db:v1 .
 gcloud docker -- push gcr.io/${PROJECT_ID}/web:v1
 gcloud docker -- push gcr.io/${PROJECT_ID}/db:v1
 
-gcloud container clusters get-credentials web-cluster
+#gcloud container clusters create web-cluster --num-nodes=2
+#gcloud container clusters get-credentials web-cluster
 
 #kompose convert -f ./ops/kubernetes/docker-compose-deploy.yaml
 
-kubectl create -f ./ops/kubernetes/db-data-persistentvolumeclaim.yaml
+kompose convert -f ./ops/kubernetes/all.yaml
 
-kubectl create -f ./ops/kubernetes/db-deployment.yaml
-kubectl create -f ./ops/kubernetes/db-service.yaml
-
+# This job needs to run once the db server is up and running
 kubectl create -f ./ops/kubernetes/db-job.yaml
-
-kubectl create -f ./ops/kubernetes/server-deployment.yaml
-kubectl create -f ./ops/kubernetes/server-service.yaml

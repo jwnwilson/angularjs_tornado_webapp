@@ -14,4 +14,9 @@ spec:
       - name: mongo-data-loader
         image: gcr.io/jwnwilson-eu/db:v1
         command: ["/reset_db.sh"]
+        env:
+        - name: DB_URI
+          value: mongodb://db:27017
+        - name: DB_HOST
+          value: db
       restartPolicy: OnFailure

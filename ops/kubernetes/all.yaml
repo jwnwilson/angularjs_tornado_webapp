@@ -1,0 +1,110 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    io.kompose.service: db-data
+  name: db-data
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Mi
+status: {}
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: db
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: db
+        tier: db
+    spec:
+      containers:
+      - image: mongo:3.4.0
+        ports:
+          - containerPort: 27017
+        name: db
+        resources: {}
+        volumeMounts:
+        - mountPath: /data/db
+          name: db-data
+      restartPolicy: Always
+      volumes:
+      - name: db-data
+        persistentVolumeClaim:
+          claimName: db-data
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: db
+    tier: db
+  name: db
+spec:
+  ports:
+  - name: headless
+    port: 27017
+    targetPort: 27017
+  selector:
+    app: db
+    tier: db
+status:
+  loadBalancer: {}
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: server
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: web
+        tier: server
+    spec:
+      containers:
+      - args:
+        - ./venv/bin/python3
+        - app.py
+        image: gcr.io/jwnwilson-eu/web:v1
+        name: nw-server
+        ports:
+        - containerPort: 8888
+        resources: {}
+        tty: true
+        workingDir: /src/server
+        env:
+        - name: DB_URI
+          value: mongodb://db:27017
+        - name: DB_HOST
+          value: db
+      restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: server
+  labels:
+    app: web
+    tier: server
+spec:
+  type: LoadBalancer
+  ports:
+  - name: "web"
+    port: 80
+    targetPort: 8888
+  selector:
+    app: web
+    tier: server
