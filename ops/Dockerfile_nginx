@@ -1,0 +1,10 @@
+FROM nginx
+MAINTAINER Noel Wilson <jwnwilson@gmail.com>
+
+# install certbot
+RUN apt-get update && apt-get install -y certbot && apt-get install -y python-certbot-nginx
+
+RUN mkdir -p /var/www/html & chmod -R 755 /var/www/html
+COPY ./ops/update_cert.sh /update_cert.sh
+COPY ./static /var/www/html
+COPY ./ops/nginx.conf /etc/nginx/conf.d/default.conf
