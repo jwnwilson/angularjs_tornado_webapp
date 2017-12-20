@@ -27,7 +27,7 @@ services:
   server:
     build:
       context: .
-      dockerfile: ./ops/docker_server
+      dockerfile: ./ops/Dockerfile_server
     user: root
     env_file:
       - web.env
