@@ -10,6 +10,7 @@ ssh root@${SERVER_IP} "
   apt-get install -y make &&
   apt-get install -y nginx &&
   apt-get install -y certbot &&
+  apt-get install -y zip &&
   apt-get install -y supervisor
 "
 # Docker dependancies
