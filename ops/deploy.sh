@@ -17,6 +17,7 @@ scp ./ops/default.conf root@${SERVER_IP}:/etc/nginx/sites-enabled/default
 scp ./ops/supervisor.conf root@${SERVER_IP}:/etc/supervisor/conf.d/noelwilson.conf
 
 # Run make setup on box
+ssh root@${SERVER_IP} "docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)"
 ssh root@${SERVER_IP} "rm -rf /opt/app/current/client/node_modules"
 ssh root@${SERVER_IP} "cd /opt/app/current/ && make build && make setup && make run-fe-build"
 
