@@ -28,7 +28,10 @@ var _mqWidth = {
   tabletLandscape: 1024,
   desktop: 1382
 };
-var CONTEXT;
+
+if (CONTEXT === undefined) { // eslint-disable-line
+  CONTEXT = {}; // eslint-disable-line
+}
 /* Components */
 
 /* App Dependencies */
@@ -46,7 +49,7 @@ var app = angular.module("app", [
 
 app.value("_mqWidth", _mqWidth);
 app.value("_urlPrefixes", _urlPrefixes);
-app.value("context", CONTEXT || {}); // eslint-disable-line
+app.value("context", CONTEXT); // eslint-disable-line
 
 /* App Config */
 angular.module("app").config(routesConfig);
