@@ -40,4 +40,7 @@ ssh root@${SERVER_IP} "certbot certonly -n -m jwnwilson@hotmail.co.uk --agree-to
 ssh root@${SERVER_IP} "openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048"
 
 # Add cronjob
-crontab -l | { cat; echo "0 0 1 * * /opt/apps/noelwilson/ops/update_ssl.sh"; } | crontab -
+crontab -l | { cat; echo "0 0 1 * * /opt/apps/currnet/ops/update_ssl.sh"; } | crontab -
+
+# Cache dir
+ssh root@${SERVER_IP} "mkdir /tmp/cache"

@@ -11,7 +11,7 @@ ssh root@${SERVER_IP} "unzip /tmp/project.zip -d /opt/app/noelwilson_${TODAY}"
 ssh root@${SERVER_IP} "rm /opt/app/current && ln -s /opt/app/noelwilson_${TODAY} /opt/app/current"
 
 # Copy nginx conf
-scp ./ops/default.conf root@${SERVER_IP}:/etc/nginx/sites-enabled/default
+scp ./ops/noewilson.conf root@${SERVER_IP}:/etc/nginx/sites-enabled/noelwilson.conf
 
 # Copy supervisor conf
 scp ./ops/supervisor.conf root@${SERVER_IP}:/etc/supervisor/conf.d/noelwilson.conf

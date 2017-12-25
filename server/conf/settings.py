@@ -5,6 +5,8 @@ import tornado
 import tornado.template
 from tornado.options import define, options
 
+from handlers.error import NotFoundHandler
+
 # Global settings
 API_prefix = r'/api/v1/'
 
@@ -50,6 +52,7 @@ settings['cookie_secret'] = '0140f0c5b27d439c88a0da22626f6333'
 settings['xsrf_cookies'] = True
 settings['template_loader'] = tornado.template.Loader(TEMPLATE_ROOT)
 settings['login_url'] = '/login'
+settings['default_handler_class'] = NotFoundHandler
 
 SYSLOG_TAG = "noelwilson"
 SYSLOG_FACILITY = logging.handlers.SysLogHandler.LOG_LOCAL2
