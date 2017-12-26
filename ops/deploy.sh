@@ -12,6 +12,7 @@ ssh root@${SERVER_IP} "rm /opt/app/current && ln -s /opt/app/noelwilson_${TODAY}
 
 # Copy nginx conf
 scp ./ops/noewilson.conf root@${SERVER_IP}:/etc/nginx/sites-enabled/noelwilson.conf
+scp ./ops/jwnwilson.conf root@${SERVER_IP}:/etc/nginx/sites-enabled/jwnwilson.conf
 
 # Copy supervisor conf
 scp ./ops/supervisor.conf root@${SERVER_IP}:/etc/supervisor/conf.d/noelwilson.conf
