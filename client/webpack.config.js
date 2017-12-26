@@ -70,7 +70,7 @@ module.exports = {
         { from: 'media/**/*.svg', to: path.resolve(__dirname, "../static") },
         { from: 'media/**/*.jpg', to: path.resolve(__dirname, "../static") },
         { from: 'media/**/*.ico', to: path.resolve(__dirname, "../static") },
-
+        { from: 'media/**/*.xml', to: path.resolve(__dirname, "../static") },
       ]),
       new ExtractTextPlugin('../static/css/style.css')
     ]

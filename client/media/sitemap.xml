@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://noel-wilson.co.uk/</loc>
+    <priority>1.0</priority>
+    <lastmod>2017-12-26</lastmod>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://noel-wilson.co.uk/#!/work</loc>
+    <priority>1.0</priority>
+    <lastmod>2017-12-26</lastmod>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://noel-wilson.co.uk/#!/hobbies</loc>
+    <priority>1.0</priority>
+    <lastmod>2017-12-26</lastmod>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https://noel-wilson.co.uk/#!/blog</loc>
+    <priority>1.0</priority>
+    <lastmod>2017-12-26</lastmod>
+    <changefreq>hourly</changefreq>
+  </url>
+</urlset>
