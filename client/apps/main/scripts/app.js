@@ -30,7 +30,7 @@ var _mqWidth = {
 };
 
 if (CONTEXT === undefined) { // eslint-disable-line
-  CONTEXT = {}; // eslint-disable-line
+  var CONTEXT = {}; // eslint-disable-line
 }
 /* Components */
 
