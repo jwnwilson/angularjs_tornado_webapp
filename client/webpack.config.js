@@ -1,6 +1,35 @@
+var webpack = require('webpack');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
+const PROD = JSON.parse(process.env.PROD_ENV || '0');
+
+var plugins = [
+    new CopyWebpackPlugin([
+        { from: 'apps/**/*.html', to: path.resolve(__dirname, "../static") },
+        { from: 'components/**/*.html', to: path.resolve(__dirname, "../static") },
+        { from: 'apps/**/*.jpg', to: path.resolve(__dirname, "../static") },
+        { from: 'components/**/*.jpg', to: path.resolve(__dirname, "../static") },
+        { from: 'apps/**/*.png', to: path.resolve(__dirname, "../static") },
+        { from: 'components/**/*.png', to: path.resolve(__dirname, "../static") },
+        { from: 'apps/**/*.svg', to: path.resolve(__dirname, "../static") },
+        { from: 'components/**/*.svg', to: path.resolve(__dirname, "../static") },
+        { from: 'media/**/*.png', to: path.resolve(__dirname, "../static") },
+        { from: 'media/**/*.svg', to: path.resolve(__dirname, "../static") },
+        { from: 'media/**/*.jpg', to: path.resolve(__dirname, "../static") },
+        { from: 'media/**/*.ico', to: path.resolve(__dirname, "../static") },
+        { from: 'media/**/*.xml', to: path.resolve(__dirname, "../static") },
+    ]),
+    new ExtractTextPlugin('../static/css/style.css')
+];
+
+if (PROD) {
+    plugins.push(new webpack.optimize.UglifyJsPlugin({
+        compress: true,
+        sourceMap: false,
+        mangle: false // modified
+    }));
+}
 
 module.exports = {
     entry: [
@@ -56,22 +85,5 @@ module.exports = {
         extensions: ['.js']
     },
 
-    plugins: [
-      new CopyWebpackPlugin([
-        { from: 'apps/**/*.html', to: path.resolve(__dirname, "../static") },
-        { from: 'components/**/*.html', to: path.resolve(__dirname, "../static") },
-        { from: 'apps/**/*.jpg', to: path.resolve(__dirname, "../static") },
-        { from: 'components/**/*.jpg', to: path.resolve(__dirname, "../static") },
-        { from: 'apps/**/*.png', to: path.resolve(__dirname, "../static") },
-        { from: 'components/**/*.png', to: path.resolve(__dirname, "../static") },
-        { from: 'apps/**/*.svg', to: path.resolve(__dirname, "../static") },
-        { from: 'components/**/*.svg', to: path.resolve(__dirname, "../static") },
-        { from: 'media/**/*.png', to: path.resolve(__dirname, "../static") },
-        { from: 'media/**/*.svg', to: path.resolve(__dirname, "../static") },
-        { from: 'media/**/*.jpg', to: path.resolve(__dirname, "../static") },
-        { from: 'media/**/*.ico', to: path.resolve(__dirname, "../static") },
-        { from: 'media/**/*.xml', to: path.resolve(__dirname, "../static") },
-      ]),
-      new ExtractTextPlugin('../static/css/style.css')
-    ]
+    plugins: plugins
 };

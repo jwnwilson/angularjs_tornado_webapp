@@ -37,7 +37,7 @@ run-fe:
 	$(COMPOSE) run $(CLIENT)
 
 run-fe-build:
-		$(COMPOSE) run $(CLIENT) bash -c "./node_modules/.bin/webpack"
+		$(COMPOSE) run $(CLIENT) bash -c "PROD_ENV=1 ./node_modules/.bin/webpack"
 
 data:
 	$(COMPOSE) build --no-cache $(DB_SETUP)
