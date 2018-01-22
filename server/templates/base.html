@@ -27,7 +27,7 @@
       var RAW = '{% raw context %}';
       var CONTEXT = JSON.parse(RAW);;
     </script>
-    <script src="{{ static_url('bundle.js') }}"></script>
+    <script defer src="{{ static_url('bundle.js') }}"></script>
     <link rel="stylesheet" href="{{ static_url('css/style.css') }}"></link>
     <base href="/">
     {% block head %}
