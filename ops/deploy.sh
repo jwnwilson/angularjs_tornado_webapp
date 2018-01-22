@@ -21,7 +21,7 @@ scp ./ops/supervisor.conf root@${SERVER_IP}:/etc/supervisor/conf.d/noelwilson.co
 ssh root@${SERVER_IP} "supervisorctl stop all"
 ssh root@${SERVER_IP} 'docker stop $(docker ps -a -q)'
 ssh root@${SERVER_IP} "rm -rf /opt/app/current/client/node_modules"
-ssh root@${SERVER_IP} "cd /opt/app/current/ && make build && make setup && make run-fe-build"
+ssh root@${SERVER_IP} "cd /opt/app/current/ && make build && make setup && make run-fe-build && make data"
 
 ssh root@${SERVER_IP} "supervisorctl restart all"
 ssh root@${SERVER_IP} "systemctl restart nginx"
