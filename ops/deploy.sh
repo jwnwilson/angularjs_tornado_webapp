@@ -24,7 +24,7 @@ echo "Copied nginx and supervisor conf to remote machine"
 # Restart processes
 ssh root@${SERVER_IP} "supervisorctl stop all"
 ssh root@${SERVER_IP} 'docker stop $(docker ps -a -q)'
-#ssh root@${SERVER_IP} "cd /opt/app/current/ && make data"
+ssh root@${SERVER_IP} "cd /opt/app/current/ && make data"
 
 ssh root@${SERVER_IP} "supervisorctl restart all"
 ssh root@${SERVER_IP} "systemctl restart nginx"
