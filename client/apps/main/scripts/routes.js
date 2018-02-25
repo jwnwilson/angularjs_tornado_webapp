@@ -12,10 +12,11 @@ function routesConfig($routeProvider) {
       templateUrl: _urlPrefixes.TEMPLATES + "components/hobbies/templates/hobbies.html",
       label: "Hobbies"
     })
+    /*
     .when("/blog", {
       templateUrl: _urlPrefixes.TEMPLATES + "components/blog/templates/blog.html",
       label: "Blog"
-    })
+    })*/
     .otherwise({
       templateUrl: _urlPrefixes.TEMPLATES + "apps/main/templates/404.html"
     });
