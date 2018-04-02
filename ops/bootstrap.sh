@@ -36,6 +36,7 @@ ssh root@${SERVER_IP} "
 ssh root@${SERVER_IP} "ufw allow 'Nginx HTTP'"
 
 # Setup ssl
+ssh root@${SERVER_IP} "mkdir /var/www/html/.well-known/acme-challenge"
 ssh root@${SERVER_IP} "certbot certonly -n -m jwnwilson@hotmail.co.uk --agree-tos --webroot --webroot-path=/var/www/html -d noel-wilson.co.uk -d www.noel-wilson.co.uk -d jwnwilson.com -d www.jwnwilson.com"
 ssh root@${SERVER_IP} "openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048"
 
